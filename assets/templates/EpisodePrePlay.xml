@@ -2,6 +2,7 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
     <script src="{{URL(:/js/selectAudioAndSubs.js)}}" />
+    <script src="{{URL(:/js/settings.js)}}" />
   </head>
 
   <body>
@@ -34,12 +35,12 @@
             <label>{{VAL(Video/Writer/tag)}}</label>
           </row>
           <row>
-            <label>{{VAL(Video/Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}} / {{VAL(Video/Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Video/Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}} </label>
+            <label>{{VAL(Video/Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}} | {{VAL(Video/Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Video/Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}} </label>
             <label>{{VAL(Video/Director[2]/tag)}}</label>
             <label>{{VAL(Video/Writer[2]/tag)}}</label>
           </row>
           <row>
-            <label>{{EVAL("{{VAL(Video/Media/container)}} / {{VAL(Video/Media/videoCodec)}}".upper())}}</label>
+            <label>{{EVAL("{{VAL(Video/Media/container)}} | {{VAL(Video/Media/videoCodec)}}".upper())}}</label>
             <label>{{VAL(Video/Director[3]/tag)}}</label>
             <label>{{VAL(Video/Writer[3]/tag)}}</label>
           </row>
@@ -53,6 +54,7 @@
             <label>{{VAL(Video/Director[4]/tag)}}</label>
             <label>{{VAL(Video/Writer[4]/tag)}}</label>
           </row>
+
         </rows>
       </table>
 
@@ -101,7 +103,14 @@
                   <title>{{TEXT(Audio/Subs)}}</title>
                   <image>resource://Queue.png</image>
                   <focusedImage>resource://QueueFocused.png</focusedImage>
+                </actionButton> 
+                <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings')">
+                  <title>{{TEXT(Settings)}}</title>
+                  <image>resource://WishList.png</image>
+                  <focusedImage>resource://WishListFocused.png</focusedImage>
+                  <!--<badge></badge>-->
                 </actionButton>
+
               </items>
             </shelfSection>
           </sections>
@@ -122,7 +131,8 @@
             <shelfSection>
               <items>
                 <sixteenByNinePoster related="true" alwaysShowTitles="true" id="shelf_item_1" 
-                                     onSelect="atv.loadAndSwapURL('{{URL(key)}}&amp;PlexConnect=EpisodePrePlay')">
+                                     onSelect="atv.loadAndSwapURL('{{URL(key)}}&amp;PlexConnect=EpisodePrePlay')"
+                                     onPlay="atv.loadURL('{{URL()}}&amp;PlexConnect=Play:Continuous:{{VAL(ratingKey)}}')">
                   {{COPY(@parentEpisodes/Video)}}
                   <title>{{VAL(index)}}. {{VAL(title)}}</title>
                   <image>{{IMAGEURL(thumb::384)}}</image>

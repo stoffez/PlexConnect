@@ -1,0 +1,33 @@
+<atv>
+  <head>
+    <script src="{{URL(:/js/utils.js)}}" />
+    <script src="{{URL(:/js/scrobble.js)}}" />
+  </head>
+  
+  <body>
+<scroller id="Show_Grid">
+      <header>
+        <simpleHeader>
+          <title>{{TEXT(Extras)}}</title>
+        </simpleHeader>
+      </header>
+     
+      <items>
+        <grid columnCount="4" id="grid_0">
+          <items>
+            <moviePoster id="{{VAL(key)}}" alwaysShowTitles="true"
+                             onPlay="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Play::{{VAL(ratingKey)}}')"
+                             onSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Play::{{VAL(ratingKey)}}')"
+                             onHoldSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Play::{{VAL(ratingKey)}}')">
+              {{COPY(Video/Extras/Video)}}
+              <title>{{VAL(title)}}</title>
+              <subtitle>{{VAL(extraType::1=Trailer|2=Deleted|3=Interview|4=???|5=Behind the Scenes|6=Scene)}}</subtitle>
+              <image>{{IMAGEURL(thumb::384)}}</image>
+              <defaultImage>resource://16x9.png</defaultImage>
+            </moviePoster>
+          </items>
+        </grid>
+      </items>
+    </scroller>
+  </body>
+</atv>

@@ -38,19 +38,9 @@
         <sections>
           <menuSection>
             <items>
-              <oneLineMenuItem id="MovieView" onSelect="toggleSettings('MovieView', 'Settings_Movies')">
-                <label>{{TEXT(Movie View)}}</label>
-                <rightLabel>{{SETTING(movieview)}}</rightLabel>
-              </oneLineMenuItem> 
-
               <oneLineMenuItem id="ActorView" onSelect="toggleSettings('ActorView', 'Settings_Movies')">
                 <label>{{TEXT(Actor View)}}</label>
                 <rightLabel>{{SETTING(actorview)}}</rightLabel>
-              </oneLineMenuItem>
-              
-              <oneLineMenuItem id="ShowTitles_Movies" onSelect="toggleSettings('ShowTitles_Movies', 'Settings_Movies')">
-                <label>{{TEXT(Poster Titles)}}</label>
-                <rightLabel>{{SETTING(showtitles_movies)}}</rightLabel>
               </oneLineMenuItem>
             </items>
           </menuSection>
@@ -62,13 +52,6 @@
               </horizontalDivider>
             </header>
             <items>
-            
-              <oneLineMenuItem id="Movies_NavBar_OnDeck" onSelect="toggleSettings('Movies_NavBar_OnDeck', 'Settings_Movies')">
-                <label>{{TEXT(On Deck)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}
-              </oneLineMenuItem>
 
               <oneLineMenuItem id="Movies_NavBar_Unwatched" onSelect="toggleSettings('Movies_NavBar_Unwatched', 'Settings_Movies')">
                 <label>{{TEXT(Unwatched)}}</label>

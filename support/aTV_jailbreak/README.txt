@@ -2,7 +2,7 @@ PlexConnect on aTV (jailbroken)
 
 
 
-Install Python on aTV
+------Install Python on aTV---
 (current version: python_2.7.3-3_iphoneos-arm.deb)
 - download "https://yangapp.googlecode.com/files/python_2.7.3-3_iphoneos-arm.deb"
 - SFTP "python_2.7.3-3_iphoneos-arm.deb" to your aTV
@@ -15,30 +15,50 @@ Install Python on aTV
   this will pull and install python 2.5.1 with all dependencies
   "dpkg -i python_2.7.3-3_iphoneos-arm.deb"
   this will update python to 2.7.3
+  
+  ------New Version Install---
+  cd ../..
+  cd /Applications/PlexConnect
+  chmod +x PlexConnect.py
+  chmod +x PlexConnect_daemon.py
+  cd support
+  cd aTV_jailbreak
+  chmod +x PlexConnect.bash
+  chmod +x install.bash
+  chmod +x restart.bash
+  chmod +x uninstall.bash
+  ./uninstall.bash
+  ./install.bash
+  
+ ------Button Install---
+  cd ..
+  cd aTV_jailbreak
+  chmod +x install_button.bash
+  ./install_button.bash
 
-Push PlexConnect to aTV
+------Push PlexConnect to aTV---
 - SFTP into aTV and copy the complete PlexConnect directory. Eg. to /Application/PlexConnect.
 - SFTP PlexConnect/support/aTV_jailbreak/Settings.cfg to PlexConnect/Settings.cfg
   overwrite the later if already there
   this bring new defaults for PlexConnect@aTV, like disabling DNSServer
 
-Install PlexConnect as daemon
+------Install PlexConnect as daemon---
 - SSH into aTV
 - CD into the PlexConnect directory. Eg. "cd /Application/PlexConnect"
 - run "./support/aTV_jailbreak/install.bash"
 
-/etc/hosts
+------/etc/hosts---
 - optional: add PlexConnect/support/aTV_jailbreak/hosts_addon_preventATVUpdate
   this prevents aTV update
 
-
+------------------------------------------------------------------------------
 OPTION A - run PlexConnect as always, re-using trailers.apple.com
 
 /etc/hosts
 - add content of PlexConnect/support/aTV_jailbreak/hosts_addon_PlexConnect to /etc/hosts
   this redirects the trailer app back to aTV itself, replacing the DNSServer
 
-
+------------------------------------------------------------------------------
 OPTION B - create own PlexConnect button
 
 Install PlexConnect button to aTV home screen
@@ -59,7 +79,7 @@ Reboot
 Done!
 
 
-
+------------------------------------------------------------------------------------
 Debug PlexConnect
 
 check processes

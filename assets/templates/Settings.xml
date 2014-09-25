@@ -63,7 +63,6 @@
               </oneLineMenuItem>
             </items>
           </menuSection>
-          
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
@@ -71,12 +70,18 @@
               </horizontalDivider>
             </header>
             <items>
-              <oneLineMenuItem id="Top Level" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=SettingsTopLevel')">
-                <label>{{TEXT(Top Level Options)}}</label>
+            <oneLineMenuItem id="SettingsTabs" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=SettingsTabs')">
+                <label>{{TEXT(Tab Options)}}</label>
                 <accessories>
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
+              <oneLineMenuItem id="SettingsView" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=SettingsView')">
+                <label>{{TEXT(Section Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
+                 </oneLineMenuItem>
               <oneLineMenuItem id="MovieView" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=SettingsMovies')">
                 <label>{{TEXT(Movie Options)}}</label>
                 <accessories>
@@ -95,6 +100,15 @@
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
+              </items>
+          </menuSection>
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(OSD Options)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
               <oneLineMenuItem id="VideoOSD" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=SettingsVideoOSD')">
                 <label>{{TEXT(Video Player OSD)}}</label>
                 <accessories>

@@ -10,22 +10,25 @@ from Debug import *  # dprint()
 
 
 options = { \
-    'showplaylists'     :('True', 'False'), \
-    'showsharedlibrarys':('True', 'False'), \
-    'libraryview'       :('List', 'Grid', 'Bookcase'), \
-    'movieview'         :('Grid', 'List', 'Detailed List'), \
-    'homevideoview'     :('Grid', 'List', 'Detailed List'), \
-    'actorview'         :('Movies', 'Portrait'), \
-    'showview'          :('List', 'Detailed List', 'Grid', 'Bookcase'), \
+    'showplaylists'     :('Show', 'Hide'), \
+    'showsharedlibrarys':('Show', 'Hide'), \
+    'showlibrary'     :('Show', 'Hide'), \
+    'showchannels'     :('Show', 'Hide'), \
+    'libraryview'       :('Grid', 'List', 'Bookcase'), \
+    'movieview'         :('Grid', 'List', 'Detailed List', 'Bookcase'), \
+    'homevideoview'     :('List', 'Grid', 'Detailed List'), \
+    'actorview'         :('Portrait', 'Movies'), \
+    'showview'          :('Detailed List', 'List', 'Bookcase'), \
     'flattenseason'     :('False', 'True'), \
-    'seasonview'        :('List', 'Coverflow'), \
+    'seasonview'        :('List', 'Coverflow', 'Bookcase', 'Grid'), \
+    'episodeview'         :('List', 'Grid'), \
     'channelview'       :('List', 'Grid', 'Bookcase'), \
     'durationformat'    :('Hours/Minutes', 'Minutes'), \
-    'showtitles_movies'         :('Highlighted Only', 'Show All'), \
-    'showtitles_tvshows'        :('Highlighted Only', 'Show All'), \
-    'showtitles_homevideos'     :('Highlighted Only', 'Show All'), \
-    'showtitles_channels'       :('Highlighted Only', 'Show All'), \
-    'movies_navbar_ondeck'      :('checked', 'unchecked'), \
+    'showtitles_movies'         :('Show All', 'Highlighted Only'), \
+    'showtitles_tvshows'        :('Show All', 'Highlighted Only'), \
+    'showtitles_homevideos'     :('Show All', 'Highlighted Only'), \
+    'showtitles_channels'       :('Show All', 'Highlighted Only'), \
+    'movies_navbar_ondeck'      :('Show', 'Hide'), \
     'movies_navbar_unwatched'   :('checked', 'unchecked'), \
     'movies_navbar_byfolder'    :('checked', 'unchecked'), \
     'movies_navbar_collections' :('checked', 'unchecked'), \
@@ -34,12 +37,12 @@ options = { \
     'movies_navbar_directors'   :('checked', 'unchecked'), \
     'movies_navbar_actors'      :('checked', 'unchecked'), \
     'movies_navbar_more'        :('checked', 'unchecked'), \
-    'homevideos_navbar_ondeck'      :('checked', 'unchecked'), \
+    'homevideos_navbar_ondeck'      :('Show', 'Hide'), \
     'homevideos_navbar_unwatched'   :('checked', 'unchecked'), \
     'homevideos_navbar_byfolder'    :('checked', 'unchecked'), \
     'homevideos_navbar_collections' :('checked', 'unchecked'), \
     'homevideos_navbar_genres'      :('checked', 'unchecked'), \
-    'tv_navbar_ondeck'          :('checked', 'unchecked'), \
+    'tv_navbar_ondeck'          :('Show', 'Hide'), \
     'tv_navbar_unwatched'       :('checked', 'unchecked'), \
     'tv_navbar_genres'          :('checked', 'unchecked'), \
     'tv_navbar_more'            :('checked', 'unchecked'), \
@@ -55,12 +58,12 @@ options = { \
     'subtitlerenderer'  :('Auto', 'iOS, PMS', 'PMS'), \
     'subtitlesize'      :('100', '125', '150', '50', '75'), \
     'audioboost'        :('100', '175', '225', '300'), \
-    'showunwatched'     :('True', 'False'), \
-    'showsynopsis'      :('Hide', 'Show'), \
-    'showplayerclock'   :('True', 'False'), \
+    'showunwatched'     :('Show', 'Hide'), \
+    'showsynopsis'      :('Show', 'Hide'), \
+    'showplayerclock'   :('Show', 'Hide'), \
     'overscanadjust'    :('0', '1', '2', '3', '-3', '-2', '-1'), \
     'clockposition'     :('Center', 'Right', 'Left'), \
-    'showendtime'       :('True', 'False'), \
+    'showendtime'       :('Show', 'Hide'), \
     'timeformat'        :('24 Hour', '12 Hour'), \
     'myplex_user'       :('', ), \
     'myplex_auth'       :('', ), \

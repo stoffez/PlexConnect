@@ -263,6 +263,9 @@ def XML_PMS2aTV(PMS_address, path, options):
     elif cmd=='PhotoBrowser':
         XMLtemplate = 'Photo_Browser.xml'
         
+    elif cmd == 'Extras':
+        XMLtemplate = 'Extras.xml'
+        
     elif cmd=='MoviePreview':
         XMLtemplate = 'MoviePreview.xml'
     
@@ -347,6 +350,10 @@ def XML_PMS2aTV(PMS_address, path, options):
         XMLtemplate = 'Settings_Movies.xml'
         path = ''  # clear path - we don't need PMS-XML
         
+    elif cmd=='SettingsView':
+        XMLtemplate = 'Settings_View.xml'
+        path = ''  # clear path - we don't need PMS-XML
+        
     elif cmd=='SettingsTVShows':
         XMLtemplate = 'Settings_TVShows.xml'
         path = ''  # clear path - we don't need PMS-XML
@@ -355,8 +362,8 @@ def XML_PMS2aTV(PMS_address, path, options):
         XMLtemplate = 'Settings_HomeVideos.xml'
         path = ''  # clear path - we don't need PMS-XML
 
-    elif cmd=='SettingsTopLevel':
-        XMLtemplate = 'Settings_TopLevel.xml'
+    elif cmd=='SettingsTabs':
+        XMLtemplate = 'Settings_Tabs.xml'
         path = ''  # clear path - we don't need PMS-XML
         
     elif cmd.startswith('SettingsToggle:'):
@@ -479,7 +486,7 @@ def XML_PMS2aTV(PMS_address, path, options):
             XMLtemplate = 'TV_OnDeck.xml'
         else:
             # TV Episode view
-            XMLtemplate = 'Episode.xml'
+            XMLtemplate = 'Episode_'+g_ATVSettings.getSetting(UDID, 'episodeview').replace(' ','')+'.xml'
     
     elif PMSroot.get('viewGroup','')=='photo' or \
        path.startswith('/photos') or \

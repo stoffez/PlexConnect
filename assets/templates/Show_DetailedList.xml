@@ -20,7 +20,7 @@
                                                  onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenu')">
                 {{COPY(Directory)}}
                 <label>{{VAL(title)}}</label>
-								<rightLabel>{{unwatchedCountList(leafCount:0:viewedLeafCount:0)}}</rightLabel>{{CUT($showunwatched::False=CUT|True=)}}
+								<rightLabel>{{unwatchedCountList(leafCount:0:viewedLeafCount:0)}}</rightLabel>{{CUT($showunwatched::Hide=CUT|Show=)}}
                 <preview>
                   <keyedPreview>
                     <title>{{VAL(title)}}</title>

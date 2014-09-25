@@ -2,7 +2,6 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
   </head>
-
   <body>
     <listWithPreview id="Show_List">
       <header>
@@ -20,21 +19,28 @@
                                                  onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenu')">
                 {{COPY(Directory)}}
                 <label>{{VAL(title)}}</label>
-								<rightLabel>{{unwatchedCountList(leafCount:0:viewedLeafCount:0)}}</rightLabel>{{CUT($showunwatched::False=CUT|True=)}}
+				<rightLabel>{{unwatchedCountList(leafCount:0:viewedLeafCount:0)}}</rightLabel>{{CUT($showunwatched::Hide=CUT|Show=)}}
+               <accessories>
+                  <unplayedDot/>{{CUT(viewOffset)}}
+                  <partiallyPlayedDot/>
+                </accessories>{{CUT(viewCount)}}
                 <preview>
                   <crossFadePreview>
                     <image>{{IMAGEURL(thumb::768)}}</image>
                   </crossFadePreview>
                 </preview>
-              </oneLineMenuItem>{{CUT(Directory/title:CUT:=)}}
-
-              <oneLineMenuItem id="none">
-                <label>{{TEXT(No Unwatched Shows)}}</label>
-              </oneLineMenuItem>{{CUT(Directory/title::=CUT)}}
+              </oneLineMenuItem>
             </items>
           </menuSection>
         </sections>
       </menu>
     </listWithPreview>
+    
+        <!--No Items Available-->
+    <dialog id="com.sample.error-dialog">
+    {{CUT(size::0=|1=CUT)}}
+      <title>PlexConnect</title>
+      <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
+    </dialog>
   </body>
 </atv>
