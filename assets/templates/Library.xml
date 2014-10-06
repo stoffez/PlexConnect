@@ -61,7 +61,7 @@
       </menu>
     </listWithPreview>{{CUT(#sections::FALSE=CUT|TRUE=)}}  <!--CUT if no section added-->
     
-      <!-- Grid -->
+    <!-- Grid -->
     <scroller id="com.sample.movie-showcase-grid">
     {{CUT($libraryview::=CUT|Grid=|Grid =CUT)}}
      <header>

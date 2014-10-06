@@ -10,25 +10,28 @@
           <title>{{VAL(title2)}}</title>
         </simpleHeader>
       </header>
+      {{VAR(parentThumb:thumb)}}
       <menu>
         <sections>
           <menuSection>
             <items>
-              <oneLineMenuItem id="{{VAL(key)}}" onPlay="atv.loadURL('{{URL(key)}}')"
+              <twoLineEnhancedMenuItem id="{{VAL(key)}}" onPlay="atv.loadURL('{{URL(key)}}')"
                                                          onSelect="atv.loadURL('{{URL(key)}}')"
                                                          onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenu')">
                 {{COPY(Directory)}}
                 <label>{{VAL(title)}}</label>
-                <rightLabel>{{unwatchedCountList(leafCount:0:viewedLeafCount:0)}}</rightLabel>{{CUT($showunwatched::Hide=CUT|Show=)}}
-                <maxOrdinalDigits>1</maxOrdinalDigits>
-                
-                
+                <label2>{{VAL(leafCount)}} {{TEXT(Episodes)}}</label2>
+                <rightLabel>{{unwatchedCountList(leafCount:0:viewedLeafCount:0)}}</rightLabel>{{CUT($showunwatched::False=CUT|True=)}}
+                <image>{{IMAGEURL(thumb::768)}}</image>{{CUT(thumb:CUT:=CUT| =)}}
+                <image>{{IMAGEURL(#parentThumb::768)}}</image>{{CUT(thumb:: =CUT)}}
+                <defaultImage>resource://Poster.png</defaultImage>
                 <preview>
                   <crossFadePreview>
-                    <image>{{IMAGEURL(thumb::768)}}</image>
+                    <image>{{IMAGEURL(thumb::768)}}</image>{{CUT(thumb:CUT:=CUT| =)}}
+                    <image>{{IMAGEURL(#parentThumb::768)}}</image>{{CUT(thumb:: =CUT)}}
                   </crossFadePreview>
                 </preview>
-              </oneLineMenuItem>{{CUT(Directory/title:CUT:=)}}
+              </twoLineEnhancedMenuItem>{{CUT(Directory/title:CUT:=)}}
 
               <oneLineMenuItem id="none">
                 <label>{{TEXT(No Seasons)}}</label>

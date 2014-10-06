@@ -36,7 +36,7 @@
               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
               {{VAR(movies:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                 <label>{{VAL(title)}}</label>
-                <rightLabel>{{getDurationString(duration)}}</rightLabel>
+                <rightLabel>{{durationToString(NoKey:Video:duration)}}</rightLabel>
                 <accessories>
                   <unplayedDot/>{{CUT(viewOffset)}}
                   <partiallyPlayedDot/>
@@ -56,7 +56,7 @@
                       <label>{{VAL(Role/tag)}}{{VAL(Role[2]/tag::=, )}}{{VAL(Role[2]/tag)}}{{VAL(Role[3]/tag::=, )}}{{VAL(Role[3]/tag)}}</label>
                       <label>{{VAL(Director/tag)}}</label>
                       <label>{{VAL(Genre/tag)}}{{VAL(Genre[2]/tag::=, )}}{{VAL(Genre[2]/tag)}}</label>
-                      <label>{{getDurationString(duration)}}</label>
+                      <label>{{durationToString(NoKey:Video:duration)}}</label>
                     </metadataValues>
                   </keyedPreview>
                 </preview>
@@ -81,7 +81,7 @@
               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
               {{VAR(episodes:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                 <label>{{VAL(title)}}</label>
-                <rightLabel>{{getDurationString(duration)}}</rightLabel>
+                <rightLabel>{{durationToString(NoKey:Video:duration)}}</rightLabel>
                 <ordinal>{{VAL(index)}}</ordinal>
                 <maxOrdinalDigits>2</maxOrdinalDigits>
                 <accessories>
@@ -103,7 +103,7 @@
 						</metadataKeys>
 						<metadataValues>
 							<label>{{VAL(originallyAvailableAt)}}</label>
-							<label>{{getDurationString(duration)}}</label>
+							<label>{{durationToString(NoKey:Video:duration)}}</label>
 							<label>{{VAL(Media/videoResolution:Unknown:1080=1080p|720=720p|576=576 SD|480=480 SD|sd=SD)}}  {{VAL(Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Media/audioChannels:Unknown:2=Stereo 2.0|6=5.1|8=7.1)}}</label>		
 						</metadataValues>
                   </keyedPreview>

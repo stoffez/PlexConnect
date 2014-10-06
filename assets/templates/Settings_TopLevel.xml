@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atv>
+  <head>
+    <script src="{{URL(:/js/utils.js)}}" />
+    <script src="{{URL(:/js/settings.js)}}" />
+  </head>
+
+  <body>
+    <listWithPreview id="SettingsPage_VideoOSD">
+      <header>
+        <simpleHeader>
+          <title>{{TEXT(Settings)}}</title>
+        </simpleHeader>
+      </header>
+      <preview>
+        <keyedPreview>
+          <title>&#x00AD;<!--soft-hyphen--></title>
+          <summary/>
+          <metadataKeys>
+            <label>{{TEXT(Version)}}</label>
+            <label>{{TEXT(Authors)}}</label>
+            <label>{{TEXT(Wiki/Docs)}}</label>
+            <label>{{TEXT(Homepage)}}</label>
+            <label>{{TEXT(Forum)}}</label>
+          </metadataKeys>
+          <metadataValues>
+            <label>{{EVAL(__VERSION__)}}</label>
+            <label>Baa, roidy</label>
+            <label>f00b4r, meltman</label>
+            <label>https://github.com/ibaa/plexconnect</label>
+            <label>http://forums.plexapp.com/...plexconnect</label>
+          </metadataValues>
+          <image>{{URL(:/thumbnails/PlexConnectLogo.jpg)}}</image>
+        </keyedPreview>
+      </preview>
+
+      <menu>
+        <sections>
+        <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Library)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
+              <oneLineMenuItem id="LibraryView" onSelect="toggleSettings('LibraryView', 'Settings_TopLevel')">
+                <label>{{TEXT(Library View)}}</label>
+                <rightLabel>{{SETTING(libraryview)}}</rightLabel>
+              </oneLineMenuItem>
+            </items>
+          </menuSection>
+        
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Navigation Bar)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
+              <oneLineMenuItem id="ShowPlayLists" onSelect="toggleSettings('ShowPlayLists', 'Settings_TopLevel')">
+                <label>{{TEXT(Show Playlists)}}</label>
+                <rightLabel>{{SETTING(showplaylists)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="ShowSharedLibrarys" onSelect="toggleSettings('ShowSharedLibrarys', 'Settings_TopLevel')">
+                <label>{{TEXT(Show Shared Librarys)}}</label>
+                <rightLabel>{{SETTING(showsharedlibrarys)}}</rightLabel>
+              </oneLineMenuItem>
+            </items>
+          </menuSection>
+          
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Movies)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
+              <oneLineMenuItem id="MovieView" onSelect="toggleSettings('MovieView', 'Settings_TopLevel')">
+                <label>{{TEXT(Movie View)}}</label>
+                <rightLabel>{{SETTING(movieview)}}</rightLabel>
+              </oneLineMenuItem>
+               <oneLineMenuItem id="ShowTitles_Movies" onSelect="toggleSettings('ShowTitles_Movies', 'Settings_TopLevel')">
+                <label>{{TEXT(Poster Titles)}}</label>
+                <rightLabel>{{SETTING(showtitles_movies)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="MovieFanart" onSelect="toggleSettings('MovieFanart', 'Settings_TopLevel')">
+                <label>{{TEXT(Movie Fanart)}}</label>
+                <rightLabel>{{SETTING(moviefanart)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="Movies_NavBar_OnDeck" onSelect="toggleSettings('Movies_NavBar_OnDeck', 'Settings_TopLevel')">
+                <label>{{TEXT(On Deck)}}</label>
+                <accessories>
+                  <checkMark/>
+                </accessories>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}
+              </oneLineMenuItem>
+            </items>
+          </menuSection>
+          
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(TV Shows)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
+              <oneLineMenuItem id="ShowView" onSelect="toggleSettings('ShowView', 'Settings_TopLevel')">
+                <label>{{TEXT(TV Show View)}}</label>
+                <rightLabel>{{SETTING(showview)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="SeasonView" onSelect="toggleSettings('SeasonView', 'Settings_TopLevel')">
+                <label>{{TEXT(Season View)}}</label>
+                <rightLabel>{{SETTING(seasonview)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="ShowSynopsis" onSelect="toggleSettings('ShowSynopsis', 'Settings_TopLevel')">
+                <label>{{TEXT(Unwatched Synopsis)}}</label>
+                <rightLabel>{{SETTING(showsynopsis)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="ShowTitles_TVShows" onSelect="toggleSettings('ShowTitles_TVShows', 'Settings_TopLevel')">
+                <label>{{TEXT(Poster Titles)}}</label>
+                <rightLabel>{{SETTING(showtitles_tvshows)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="TVShowFanart" onSelect="toggleSettings('TVShowFanart', 'Settings_TopLevel')">
+                <label>{{TEXT(TV Show Fanart)}}</label>
+                <rightLabel>{{SETTING(tvshowfanart)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="TV_NavBar_OnDeck" onSelect="toggleSettings('TV_NavBar_OnDeck', 'Settings_TopLevel')">
+                <label>{{TEXT(On Deck)}}</label>
+                <accessories>
+                  <checkMark/>
+                </accessories>{{CUT($tv_navbar_ondeck::unchecked=CUT|checked=)}}
+              </oneLineMenuItem>
+            </items>
+          </menuSection>
+          
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Home Video)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
+              <oneLineMenuItem id="HomeVideoView" onSelect="toggleSettings('HomeVideoView', 'Settings_TopLevel')">
+                <label>{{TEXT(Home Video View)}}</label>
+                <rightLabel>{{SETTING(homevideoview)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="ShowTitles_HomeVideos" onSelect="toggleSettings('ShowTitles_HomeVideos', 'Settings_TopLevel')">
+                <label>{{TEXT(Poster Titles)}}</label>
+                <rightLabel>{{SETTING(showtitles_homevideos)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="HomeVideos_NavBar_OnDeck" onSelect="toggleSettings('HomeVideos_NavBar_OnDeck', 'Settings_TopLevel')">
+                <label>{{TEXT(On Deck)}}</label>
+                <accessories>
+                  <checkMark/>
+                </accessories>{{CUT($homevideos_navbar_ondeck::unchecked=CUT|checked=)}}
+              </oneLineMenuItem>
+            </items>
+          </menuSection>
+          
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Channels)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
+              <oneLineMenuItem id="ChannelView" onSelect="toggleSettings('ChannelView', 'Settings_TopLevel')">
+                <label>{{TEXT(Channel View)}}</label>
+                <rightLabel>{{SETTING(channelview)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="ShowTitles_Channels" onSelect="toggleSettings('ShowTitles_Channels', 'Settings_TopLevel')">
+                <label>{{TEXT(Poster Titles)}}</label>
+                <rightLabel>{{SETTING(showtitles_channels)}}</rightLabel>
+              </oneLineMenuItem>
+            </items>
+          </menuSection>
+        </sections>
+      </menu>
+    </listWithPreview>
+  </body>
+</atv>
