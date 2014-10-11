@@ -19,6 +19,33 @@
       
      <menu>
         <sections>
+        <menuSection>
+            <items>
+              <!-- shuffle -->
+              <oneLineMenuItem id="shuffle_{{VAL(key)}}"
+                                       onPlay="atv.loadURL('{{URL(Video)}}&amp;PlexConnect=Play:Shuffle:{{VAL(Video/ratingKey)}}')"
+                                       onSelect="atv.loadURL('{{URL(Video)}}&amp;PlexConnect=Play:Shuffle:{{VAL(Video/ratingKey)}}')">
+                <label>{{TEXT(Shuffle)}}</label>
+                <accessories>
+                  <shuffle/>
+                </accessories>
+                <preview>
+                  <paradePreview inOrder="true">
+                    <image>
+                      {{COPY(Video:thumb::=COPY)}}
+                      {{IMAGEURL(thumb::768)}}
+                    </image>
+                  </paradePreview>{{CUT(leafCount:CUT:0=CUT|0 =|1=CUT|1 =|2=CUT|2 =|3=CUT|4=CUT|5=CUT|6=)}}
+                  <crossFadePreview>
+                    <image>
+                      {{COPY(Video:thumb::=COPY)}}
+                      {{IMAGEURL(thumb::768)}}
+                    </image>
+                  </crossFadePreview>{{CUT(leafCount::0=|0 =CUT|1=|1 =CUT|2=|2 =CUT|3=|4=|5=|6=CUT)}}
+                </preview>
+              </oneLineMenuItem>
+            </items>
+          </menuSection>
           <!-- Movies -->
           <menuSection>
             <header>
@@ -29,7 +56,7 @@
             
             <items>
               <oneLineMenuItem id="{{VAL(key)}}"
-                             onPlay="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Play')"
+                             onPlay="atv.loadURL('{{URL()}}&amp;PlexConnect=Play:Continuous:{{VAL(ratingKey)}}')"
                             onSelect="atv.loadURL('{{URL(key)}}?includeExtras=1&amp;PlexConnect=MoviePrePlay')"
                              onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
               {{COPY(Video:type::episode=|movie=COPY)}}
@@ -74,7 +101,7 @@
             
             <items>
               <oneLineMenuItem id="{{VAL(ratingKey)}}"
-                                         onPlay="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Play')"
+                                         onPlay="atv.loadURL('{{URL()}}&amp;PlexConnect=Play:Continuous:{{VAL(ratingKey)}}')"
                                          onSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=EpisodePrePlay')"
                                          onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
               {{COPY(Video:type::episode=COPY|movie=)}}

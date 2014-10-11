@@ -86,7 +86,11 @@
               <oneLineMenuItem id="MovieFanart" onSelect="toggleSettings('MovieFanart', 'Settings_TopLevel')">
                 <label>{{TEXT(Movie Fanart)}}</label>
                 <rightLabel>{{SETTING(moviefanart)}}</rightLabel>
-              </oneLineMenuItem>
+              </oneLineMenuItem>{{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
+              <oneLineMenuItem id="MovieFanart" dimmed="true">
+                <label>{{TEXT(Movie Fanart)}}</label>
+                <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>
+              </oneLineMenuItem>{{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
               <oneLineMenuItem id="Movies_NavBar_OnDeck" onSelect="toggleSettings('Movies_NavBar_OnDeck', 'Settings_TopLevel')">
                 <label>{{TEXT(On Deck)}}</label>
                 <accessories>
@@ -122,7 +126,11 @@
               <oneLineMenuItem id="TVShowFanart" onSelect="toggleSettings('TVShowFanart', 'Settings_TopLevel')">
                 <label>{{TEXT(TV Show Fanart)}}</label>
                 <rightLabel>{{SETTING(tvshowfanart)}}</rightLabel>
-              </oneLineMenuItem>
+              </oneLineMenuItem>{{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
+              <oneLineMenuItem id="TVShowFanart" dimmed="true">
+                <label>{{TEXT(TV Show Fanart)}}</label>
+                <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>
+              </oneLineMenuItem>{{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
               <oneLineMenuItem id="TV_NavBar_OnDeck" onSelect="toggleSettings('TV_NavBar_OnDeck', 'Settings_TopLevel')">
                 <label>{{TEXT(On Deck)}}</label>
                 <accessories>

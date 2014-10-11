@@ -621,7 +621,6 @@ def XML_ExpandNode(CommandCollection, elem, child, src, srcXML, text_tail):
         parts = cmd.split('(',1)
         cmd = parts[0]
         param = parts[1].strip(')')  # remove ending bracket
-        param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
         
         res = False
         if hasattr(CCommandCollection, 'TREE_'+cmd):  # expand tree, work COPY, CUT
@@ -632,6 +631,7 @@ def XML_ExpandNode(CommandCollection, elem, child, src, srcXML, text_tail):
                 child.tail = line
             
             try:
+            	param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
                 res = getattr(CommandCollection, 'TREE_'+cmd)(elem, child, src, srcXML, param)
             except:
                 dprint(__name__, 0, "XML_ExpandNode - Error in cmd {0}, line {1}\n{2}", cmd, line, traceback.format_exc())
@@ -699,11 +699,11 @@ def XML_ExpandLine(CommandCollection, src, srcXML, line):
         parts = cmd.split('(',1)
         cmd = parts[0]
         param = parts[1][:-1]  # remove ending bracket
-        param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
         
         if hasattr(CCommandCollection, 'ATTRIB_'+cmd):  # expand line, work VAL, EVAL...
             
             try:
+            	param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
                 res = getattr(CommandCollection, 'ATTRIB_'+cmd)(src, srcXML, param)
                 line = line[:cmd_start] + res + line[cmd_end+2:]
                 pos = cmd_start+len(res)
@@ -1411,10 +1411,24 @@ class CCommandCollection(CCommandHelper):
         else:
             return PMS_name
 
-    def ATTRIB_getBackground(self, src, srcXML, param):
-        conf = PILBackgrounds.ImageBackground(eval(param))
-        res = conf.generate()
+    def ATTRIB_BACKGROUNDURL(self, src, srcXML, param):
+        title, leftover, dfltd = self.getKey(src, srcXML, param)
+        key, leftover, dfltd = self.getKey(src, srcXML, leftover)
+        
+        if key.startswith('/'):  # internal full path.
+            key = self.PMS_baseURL + key
+        elif key.startswith('http://') or key.startswith('https://'):  # external address
+            pass
+        else:  # internal path, add-on
+            key = self.PMS_baseURL + self.path[srcXML] + key
+        
+        dprint(__name__, 0, "Background (Source): {0} // {1}", title, key)
+        res = g_param['baseURL']  # base address to PlexConnect
+        res = res + PILBackgrounds.generate(title, key, self.options['aTVScreenResolution'])
+        dprint(__name__, 0, "Background: {0}", res)
         return res
+
+
 
 if __name__=="__main__":
     cfg = Settings.CSettings()

@@ -11,9 +11,9 @@
       {{VAR(sections:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
     
     <!-- List -->
-    <listWithPreview id="Library_List">
-    {{CUT($libraryview::=CUT|List=|List =CUT)}}
-      <header>
+      <listWithPreview id="com.sample.menu-items-with-sections">
+      {{CUT($libraryview::=CUT|List=|List =CUT)}}
+        <header>
         <simpleHeader>
           <title>{{TEXT(Plex Library)}}</title>
         </simpleHeader>
