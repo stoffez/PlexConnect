@@ -358,6 +358,15 @@ def XML_PMS2aTV(PMS_address, path, options):
 
     elif cmd == 'DirectoryWithPreviewActors':
         XMLtemplate = 'DirectoryWithPreviewActors.xml'
+        
+    elif cmd=='Playlists':
+        XMLtemplate = 'Playlists.xml'
+    
+    elif cmd=='Playlist_Video':
+        XMLtemplate = 'Playlist_Video.xml'
+        
+    elif cmd=='Playlist_Audio':
+        XMLtemplate = 'Playlist_Audio.xml'
             
     elif cmd=='Settings':
         XMLtemplate = 'Settings.xml'
@@ -525,13 +534,10 @@ def XML_PMS2aTV(PMS_address, path, options):
         else:
             # Photo listing / directory
             XMLtemplate = 'Photo_Directories.xml'
-    
-    elif cmd=='Playlists':
-        XMLtemplate = 'Playlists.xml'
-    
-    elif cmd=='Playlist_Video':
-        XMLtemplate = 'Playlist_Video.xml'
-    
+            
+    elif PMSroot.get('viewGroup','')=='track':
+        XMLtemplate = "Music_Track.xml"
+
     else:
         XMLtemplate = 'Directory.xml'
     
