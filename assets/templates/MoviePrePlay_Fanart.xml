@@ -36,7 +36,7 @@
 
       <table>
         <columnDefinitions>
-          <columnDefinition width="25" alignment="left">
+          <columnDefinition width="50" alignment="left">
             <title>{{TEXT(Details)}}</title>
           </columnDefinition>
         </columnDefinitions>
