@@ -14,7 +14,7 @@
 
 	    <imageHeader>
             <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=690)}}, 0" required="true">
-                {{BACKGROUNDURL(Video/title::Video/art:)}}
+                {{BACKGROUNDURL(Video/art:)}}
             </image>
 	    </imageHeader>
 	   </header>
@@ -43,13 +43,11 @@
         <rows>
           <row>
             <label>{{VAL(Video/Genre/tag)}}</label>
-
           </row>
           <row>
             <label>{{durationToString(NoKey:Video:Video/duration)}}</label>
-
           </row>
-          <row>
+         <row>
             <label>{{VAL(Video/Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}} {{EVAL("{{VAL(Video/Media/container)}} / {{VAL(Video/Media/videoCodec)}}".upper())}}</label>
 
           </row>
@@ -57,7 +55,6 @@
             <label>{{VAL(Video/Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Video/Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}} </label>
 
           </row>
-          
         </rows>
       </table>
 
@@ -124,7 +121,6 @@
                   <focusedImage>resource://MoreFocused.png</focusedImage>
                   <!--<badge></badge>-->
                 </actionButton>{{CUT(Video/Extras/Video/ratingKey:CUT:=)}}
-                
                 <!--Setting Button Edit -->
                 
                 <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings')">
@@ -133,7 +129,6 @@
                   <focusedImage>resource://WishListFocused.png</focusedImage>
                   <!--<badge></badge>-->
                 </actionButton>
-                
               </items>
             </shelfSection>
           </sections>
@@ -141,7 +136,7 @@
       </centerShelf>
 
 
-     <divider>
+           <divider>
         <smallCollectionDivider alignment="left">
           <title>Others Starring {{VAL(Video/Role/tag)}}</title>
         </smallCollectionDivider>

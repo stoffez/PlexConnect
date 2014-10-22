@@ -5,8 +5,8 @@ import sys
 import io
 import urllib
 import urllib2
-
-import ConfigParser
+import urlparse
+import posixpath
 
 import os.path
 from Debug import * 
@@ -20,10 +20,12 @@ except ImportError:
 
 
 
-def generate(title, url, authtoken, resolution):
+def generate(PMS_uuid, url, authtoken, resolution):
     cachepath = sys.path[0]+"/assets/fanartcache"
     stylepath = sys.path[0]+"/assets/templates/images"
-    cachefile = urllib.quote_plus(title + "_" + resolution) + ".jpg"
+    
+    fileid = posixpath.basename(urlparse.urlparse(url).path)
+    cachefile = urllib.quote_plus(PMS_uuid +"_"+ fileid +"_"+ resolution) + ".jpg"  # quote: just to make sure...
     
     # Already created?
     dprint(__name__, 1, 'Check for Cachefile.')  # Debug
@@ -41,9 +43,15 @@ def generate(title, url, authtoken, resolution):
         request = urllib2.Request(url, None, xargs)
         response = urllib2.urlopen(request).read()
         background = Image.open(io.BytesIO(response))
-    except urllib2.URLError, e:
-        dprint(__name__, 1, 'error: {0} {1} // url: {2}', str(e.code), e.msg, url)  # Debug
-        background = Image.open(stylepath+"/blank.jpg")
+    except urllib2.URLError as e:
+        dprint(__name__, 1, 'URLError: {0} // url: {1}', e.reason, url)
+        return "/thumbnails/Background_blank_" + resolution + ".jpg"
+    except urllib2.HTTPError as e:
+        dprint(__name__, 1, 'HTTPError: {0} {1} // url: {2}', str(e.code), e.msg, url)
+        return "/thumbnails/Background_blank_" + resolution + ".jpg"
+    except IOError as e:
+        dprint(__name__, 1, 'IOError: {0} // url: {1}', str(e), url)
+        return "/thumbnails/Background_blank_" + resolution + ".jpg"
     
     # Get gradient template
     dprint(__name__, 1, 'Merging Layers.')  # Debug
@@ -82,6 +90,7 @@ def isPILinstalled():
 
 
 if __name__=="__main__":
-    url = "http://192.168.178.22:32400/photo/:/transcode/1920x1080/http%3A%2F%2F127.0.0.1%3A32400%2Flibrary%2Fmetadata%2F24466%2Fart%2F1412512746?url=http%3A%2F%2F127.0.0.1%3A32400%2Flibrary%2Fmetadata%2F24466%2Fart%2F1412512746&width=1920&height=1080"
-    res = generate('TestBackground', url, 'authtoken', '1080')
+    url = "http://thetvdb.com/banners/fanart/original/95451-23.jpg"
+    res = generate('uuid', url, 'authtoken', '1080')
+    res = generate('uuid', url, 'authtoken', '720')
     dprint(__name__, 0, "Background: {0}", res)

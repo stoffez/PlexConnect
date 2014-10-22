@@ -5,7 +5,7 @@
   </head>
 
   <body>
-    <itemDetailWithImageHeader layout="compact" id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL()}}&amp;PlexConnect=MoviePrePlay')">
+    <itemDetailWithImageHeader layout="compact" id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL()}}&amp;PlexConnect=EpisodePrePlay')">
         	  <styles>
           <color name="titleColor">#fafafa</color>
           <color name="metadataColor">#fafafa</color>
@@ -14,7 +14,7 @@
 
 	    <imageHeader>
             <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=690)}}, 0" required="true">
-                {{BACKGROUNDURL(Video/grandparentTitle::Video/art:)}}
+                {{BACKGROUNDURL(Video/art:)}}
             </image>
 	    </imageHeader>
 	   </header>
@@ -23,7 +23,7 @@
       <summary>{{VAL(Video/summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
       <summary>{{VAL(Video/summary)}}</summary>{{CUT(Video/viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
       <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(Video/viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
-      <image style="sixteenByNinePoster">{{IMAGEURL(Video/parentThumb::768)}}</image>
+      <image style="sixteenByNinePoster">{{IMAGEURL(Video/thumb::768)}}</image>
       <defaultImage>resource://16x9.png</defaultImage>
 
       <table>

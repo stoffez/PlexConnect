@@ -72,7 +72,7 @@
             </header>
             <items>
               <oneLineMenuItem id="Top Level" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=SettingsTopLevel')">
-                <label>{{TEXT(Section Options)}}</label>
+                <label>{{TEXT(Top Level Options)}}</label>
                 <accessories>
                   <arrow/>
                 </accessories>

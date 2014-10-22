@@ -102,8 +102,7 @@
                   <image>resource://Queue.png</image>
                   <focusedImage>resource://QueueFocused.png</focusedImage>
                 </actionButton>
-                
-                <!--Setting Button Edit -->
+                 <!--Setting Button Edit -->
                 
                 <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings')">
                   <title>{{TEXT(Settings)}}</title>
@@ -111,7 +110,6 @@
                   <focusedImage>resource://WishListFocused.png</focusedImage>
                   <!--<badge></badge>-->
                 </actionButton>
-                
               </items>
             </shelfSection>
           </sections>

@@ -359,16 +359,16 @@ def XML_PMS2aTV(PMS_address, path, options):
 
     elif cmd == 'DirectoryWithPreviewActors':
         XMLtemplate = 'DirectoryWithPreviewActors.xml'
-        
+    
     elif cmd=='Playlists':
         XMLtemplate = 'Playlists.xml'
     
     elif cmd=='Playlist_Video':
         XMLtemplate = 'Playlist_Video.xml'
-        
+    
     elif cmd=='Playlist_Audio':
         XMLtemplate = 'Playlist_Audio.xml'
-            
+    
     elif cmd=='Settings':
         XMLtemplate = 'Settings.xml'
         path = ''  # clear path - we don't need PMS-XML
@@ -395,6 +395,10 @@ def XML_PMS2aTV(PMS_address, path, options):
 
     elif cmd=='SettingsTopLevel':
         XMLtemplate = 'Settings_TopLevel.xml'
+        path = ''  # clear path - we don't need PMS-XML
+        
+    elif cmd=='SaveSettings':
+        g_ATVSettings.saveSettings();
         path = ''  # clear path - we don't need PMS-XML
         
     elif cmd.startswith('SettingsToggle:'):
@@ -486,7 +490,7 @@ def XML_PMS2aTV(PMS_address, path, options):
           XMLtemplate = 'Show_'+g_ATVSettings.getSetting(options['PlexConnectUDID'], 'showview')+'.xml'
         
     elif PMSroot.get('viewGroup','')=='season':
-         # TV Season view
+        # TV Season view
         XMLtemplate = 'Season_'+g_ATVSettings.getSetting(options['PlexConnectUDID'], 'seasonview')
         dprint(__name__, 1, "IS PIL installed? "+ str(isPILinstalled()))
         if g_ATVSettings.getSetting(options['PlexConnectUDID'], 'tvshowfanart') == 'Show' and isPILinstalled():
@@ -532,10 +536,10 @@ def XML_PMS2aTV(PMS_address, path, options):
         else:
             # Photo listing / directory
             XMLtemplate = 'Photo_Directories.xml'
-            
+    
     elif PMSroot.get('viewGroup','')=='track':
         XMLtemplate = "Music_Track.xml"
-
+    
     else:
         XMLtemplate = 'Directory.xml'
     
@@ -629,7 +633,7 @@ def XML_ExpandNode(CommandCollection, elem, child, src, srcXML, text_tail):
                 child.tail = line
             
             try:
-            	param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
+                param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
                 res = getattr(CommandCollection, 'TREE_'+cmd)(elem, child, src, srcXML, param)
             except:
                 dprint(__name__, 0, "XML_ExpandNode - Error in cmd {0}, line {1}\n{2}", cmd, line, traceback.format_exc())
@@ -701,7 +705,7 @@ def XML_ExpandLine(CommandCollection, src, srcXML, line):
         if hasattr(CCommandCollection, 'ATTRIB_'+cmd):  # expand line, work VAL, EVAL...
             
             try:
-            	param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
+                param = XML_ExpandLine(CommandCollection, src, srcXML, param)  # expand any attributes in the parameter
                 res = getattr(CommandCollection, 'ATTRIB_'+cmd)(src, srcXML, param)
                 line = line[:cmd_start] + res + line[cmd_end+2:]
                 pos = cmd_start+len(res)
@@ -1408,10 +1412,9 @@ class CCommandCollection(CCommandHelper):
             return "No Server in Proximity"
         else:
             return PMS_name
-
+    
     def ATTRIB_BACKGROUNDURL(self, src, srcXML, param):
-        title, leftover, dfltd = self.getKey(src, srcXML, param)
-        key, leftover, dfltd = self.getKey(src, srcXML, leftover)
+        key, leftover, dfltd = self.getKey(src, srcXML, param)
         
         if key.startswith('/'):  # internal full path.
             key = self.PMS_baseURL + key
@@ -1419,12 +1422,12 @@ class CCommandCollection(CCommandHelper):
             pass
         else:  # internal path, add-on
             key = self.PMS_baseURL + self.path[srcXML] + key
-            
+        
         auth_token = PlexAPI.getPMSProperty(self.ATV_udid, self.PMS_uuid, 'accesstoken')
         
-        dprint(__name__, 0, "Background (Source): {0} // {1}", title, key)
+        dprint(__name__, 0, "Background (Source): {0}", key)
         res = g_param['baseURL']  # base address to PlexConnect
-        res = res + PILBackgrounds.generate(title, key, auth_token, self.options['aTVScreenResolution'])
+        res = res + PILBackgrounds.generate(self.PMS_uuid, key, auth_token, self.options['aTVScreenResolution'])
         dprint(__name__, 0, "Background: {0}", res)
         return res
 
