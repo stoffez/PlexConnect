@@ -11,6 +11,8 @@ from Debug import *  # dprint()
 
 options = { \
     'showplaylists'     :('True', 'False'), \
+    'showlibrary'		:('True', 'False'), \
+    'showchannels'     :('True', 'False'), \
     'showsharedlibrarys':('True', 'False'), \
     'libraryview'       :('List', 'Grid', 'Bookcase'), \
     'movieview'         :('Grid', 'List', 'Detailed List'), \
