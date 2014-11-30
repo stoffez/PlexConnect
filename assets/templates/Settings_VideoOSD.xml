@@ -47,6 +47,10 @@
                 <label>{{TEXT(Show Clock)}}</label>
                 <rightLabel>{{SETTING(showplayerclock)}}</rightLabel>
               </oneLineMenuItem>
+              <oneLineMenuItem id="ShowPlayInfos" onSelect="toggleSettings('ShowPlayInfos', 'Settings_VideoOSD')">
+                <label>{{TEXT(Show Infos)}}</label>
+                <rightLabel>{{SETTING(showplayinfos)}}</rightLabel>
+              </oneLineMenuItem>
               <oneLineMenuItem id="ShowEndTime" onSelect="toggleSettings('ShowEndTime', 'Settings_VideoOSD')">
                 <label>{{TEXT(Show End Time)}}</label>
                 <rightLabel>{{SETTING(showendtime)}}</rightLabel>

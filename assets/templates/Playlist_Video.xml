@@ -4,9 +4,7 @@
   </head>
   
   <body>
-  {{VAR(items:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
- {{VAR(movies:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
- {{VAR(episodes:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
+    {{VAR(items:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
     
     <!-- List -->
     <listWithPreview id="Playlist_List">
@@ -17,9 +15,10 @@
         </simpleHeader>
       </header>
       
-     <menu>
+      <menu>
         <sections>
-        <menuSection>
+          
+          <menuSection>
             <items>
               <!-- shuffle -->
               <oneLineMenuItem id="shuffle_{{VAL(key)}}"
@@ -46,33 +45,31 @@
               </oneLineMenuItem>
             </items>
           </menuSection>
-          <!-- Movies -->
+          
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
-                <title>{{TEXT(Movies)}}</title>
+                <title />
               </horizontalDivider>
             </header>
             
             <items>
+              <__COPY__>
+              {{COPY(Video)}}
+              
+              <!-- Movies -->
               <oneLineMenuItem id="{{VAL(key)}}"
                              onPlay="atv.loadURL('{{URL()}}&amp;PlexConnect=Play:Continuous:{{VAL(ratingKey)}}')"
-                            onSelect="atv.loadURL('{{URL(key)}}?includeExtras=1&amp;PlexConnect=MoviePrePlay')"
+                             onSelect="atv.loadURL('{{URL(key)}}?includeExtras=1&amp;PlexConnect=MoviePrePlay')"
                              onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
-              {{COPY(Video:type::episode=|movie=COPY)}}
+              {{CUT(type::episode=CUT|movie=)}}
               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
-              {{VAR(movies:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                 <label>{{VAL(title)}}</label>
-                <rightLabel>{{durationToString(NoKey:Video:duration)}}</rightLabel>
-                <accessories>
-                  <unplayedDot/>{{CUT(viewOffset)}}
-                  <partiallyPlayedDot/>
-                </accessories>{{CUT(viewCount)}}
                 <preview>
                   <keyedPreview>
                     <title>{{VAL(title)}}</title>
                     <summary>{{VAL(summary)}}</summary>
-                    <image>{{IMAGEURL(thumb::768)}}</image>
+                    <image>{{IMAGEURL(art::768)}}</image>
                     <metadataKeys>
                       <label>{{TEXT(Actors)}}</label>
                       <label>{{TEXT(Director)}}</label>
@@ -88,56 +85,41 @@
                   </keyedPreview>
                 </preview>
               </oneLineMenuItem>
-            </items>
-          </menuSection>{{CUT(#movies::FALSE=CUT|TRUE=)}}
-          
-          <!-- Episodes -->
-          <menuSection>
-            <header>
-              <horizontalDivider alignment="left">
-                <title>{{TEXT(Episodes)}}</title>
-              </horizontalDivider>
-            </header>
-            
-            <items>
+              
+              <!-- Episodes -->
               <oneLineMenuItem id="{{VAL(ratingKey)}}"
-                                         onPlay="atv.loadURL('{{URL()}}&amp;PlexConnect=Play:Continuous:{{VAL(ratingKey)}}')"
-                                         onSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=EpisodePrePlay')"
-                                         onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
-              {{COPY(Video:type::episode=COPY|movie=)}}
+                             onPlay="atv.loadURL('{{URL()}}&amp;PlexConnect=Play:Continuous:{{VAL(ratingKey)}}')"
+                             onSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=EpisodePrePlay')"
+                             onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
+              {{CUT(type::episode=|movie=CUT)}}
               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
-              {{VAR(episodes:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                 <label>{{VAL(title)}}</label>
-                <rightLabel>{{durationToString(NoKey:Video:duration)}}</rightLabel>
                 <ordinal>{{VAL(index)}}</ordinal>
                 <maxOrdinalDigits>2</maxOrdinalDigits>
-                <accessories>
-                <unplayedDot/>{{CUT(viewOffset)}}
-                  <progressBar percentage="{{EVAL({{VAL(viewOffset:0)}} * 100 / {{VAL(duration:1)}})}}"/>{{CUT(viewOffset:CUT:=)}}
-                <!---<progressBar percentage="100"/>{{CUT(viewCount:CUT:=)}}{{CUT(viewOffset)}}-->
-                </accessories>{{CUT(viewCount)}}
                 <preview>
                   <keyedPreview>
                     <title>{{VAL(grandparentTitle)}}</title>
                     <summary>{{VAL(summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
                     <summary>{{VAL(summary)}}</summary>{{CUT(viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
                     <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
-                    <image>{{IMAGEURL(thumb::800)}}</image>
-							<metadataKeys>
+                    <image>{{IMAGEURL(thumb::768)}}</image>
+                    <metadataKeys>
 							<label>{{TEXT(Aired)}}</label>
-							<label>{{TEXT(Length)}}</label>
 							<label>{{TEXT(Quality)}}</label>
+							<label>{{TEXT(Length)}}</label>
 						</metadataKeys>
 						<metadataValues>
 							<label>{{VAL(originallyAvailableAt)}}</label>
-							<label>{{durationToString(NoKey:Video:duration)}}</label>
 							<label>{{VAL(Media/videoResolution:Unknown:1080=1080p|720=720p|576=576 SD|480=480 SD|sd=SD)}}  {{VAL(Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Media/audioChannels:Unknown:2=Stereo 2.0|6=5.1|8=7.1)}}</label>		
+							<label>{{durationToString(NoKey:Video:duration)}}</label>
 						</metadataValues>
                   </keyedPreview>
                 </preview>
               </oneLineMenuItem>
+              
+              </__COPY__>
             </items>
-          </menuSection>{{CUT(#episodes::FALSE=CUT|TRUE=)}}
+          </menuSection>
           
         </sections>
       </menu>

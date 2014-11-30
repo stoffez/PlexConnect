@@ -13,7 +13,8 @@ options = { \
     'showplaylists'     :('True', 'False'), \
     'showlibrary'		:('True', 'False'), \
     'showchannels'     :('True', 'False'), \
-    'showsharedlibrarys':('True', 'False'), \
+    'showsharedlibraries'   :('True', 'False'), \
+    'showplayinfos'             :('True', 'False'), \
     'libraryview'       :('List', 'Grid', 'Bookcase'), \
     'movieview'         :('Grid', 'List', 'Detailed List'), \
     'homevideoview'     :('Grid', 'List', 'Detailed List'), \
