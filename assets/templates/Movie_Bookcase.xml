@@ -21,20 +21,23 @@
                          onPlay="flattenSeason('{{URL(key)}}', '{{SETTING(flattenseason)}}', 'False')"
                          onSelect="flattenSeason('{{URL(key)}}', '{{SETTING(flattenseason)}}', 'False')"
                          onHoldSelect="scrobbleMenu('{{stripChildrenURL(key)}}&amp;PlexConnect=ScrobbleMenuDirectory')">
-              {{COPY(Directory)}}
+              {{COPY(Video)}}
               <title>{{VAL(title)}}</title>
                 <image>{{IMAGEURL(thumb::768)}}</image>
               <defaultImage>resource://Poster.png</defaultImage>
-				<badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
-            </goldenPoster>{{CUT(Directory/title:CUT:=)}}
+            </goldenPoster>
 
-            <moviePoster id="none">
-              <title>{{TEXT(No Unwatched Shows)}}</title>
-              <defaultImage>resource://Poster.png</defaultImage>
-            </moviePoster>{{CUT(Directory/title::=CUT)}}
+            
           </items>
         </grid>
         </items>
     </scroller>
+    
+    <!--No Items Available-->
+    <dialog id="com.sample.error-dialog">
+    {{CUT(size::0=|1=CUT)}}
+      <title>PlexConnect</title>
+      <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
+    </dialog>
   </body>
 </atv>
