@@ -26,6 +26,7 @@ options = { \
     'durationformat'    :('Hours/Minutes', 'Minutes'), \
     'moviefanart'       :('Hide', 'Show'), \
     'tvshowfanart'          :('Hide', 'Show'), \
+    'fanart_blur'           :('0', '5', '10', '15', '20'), \
     'showtitles_movies'         :('Highlighted Only', 'Show All'), \
     'showtitles_tvshows'        :('Highlighted Only', 'Show All'), \
     'showtitles_homevideos'     :('Highlighted Only', 'Show All'), \
