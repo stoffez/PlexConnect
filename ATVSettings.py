@@ -16,6 +16,7 @@ options = { \
     'showsharedlibraries'   :('True', 'False'), \
     'showplayinfos'             :('True', 'False'), \
     'libraryview'       :('List', 'Grid', 'Bookcase'), \
+    'libraryview_remote'       :('List', 'Grid', 'Bookcase'), \
     'movieview'         :('Grid', 'List', 'Detailed List', 'Bookcase'), \
     'homevideoview'     :('Grid', 'List', 'Detailed List'), \
     'actorview'         :('Movies', 'Portrait'), \

@@ -47,6 +47,10 @@
                 <label>{{TEXT(Library View)}}</label>
                 <rightLabel>{{SETTING(libraryview)}}</rightLabel>
               </oneLineMenuItem>
+              <oneLineMenuItem id="LibraryView_Remote" onSelect="toggleSettings('LibraryView_Remote', 'Settings_TopLevel')">
+                <label>{{TEXT(Library View Remote)}}</label>
+                <rightLabel>{{SETTING(libraryview_remote)}}</rightLabel>
+              </oneLineMenuItem>
             </items>
           </menuSection>
         

@@ -460,7 +460,10 @@ def XML_PMS2aTV(PMS_address, path, options):
         XMLtemplate = 'ChannelsVideoSearchResults.xml'
         
     elif path=='/library/sections':  # from PlexConnect.xml -> for //local, //myplex
-        XMLtemplate = 'Library.xml'
+        if PMS_address=='owned':
+          XMLtemplate = 'Library.xml'
+        else:
+          XMLtemplate = 'Library_Shared.xml'
     
     elif path=='/channels/all':
         XMLtemplate = 'Channel_'+g_ATVSettings.getSetting(options['PlexConnectUDID'], 'channelview')+'.xml'
