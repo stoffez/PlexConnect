@@ -28,6 +28,7 @@ options = { \
     'moviefanart'       :('Hide', 'Show'), \
     'tvshowfanart'          :('Hide', 'Show'), \
     'fanart_blur'           :('0', '5', '10', '15', '20'), \
+    'moviepreplay_bottomshelf'  :('Others Starring', 'Extras', 'Related Movies'), \
     'showtitles_movies'         :('Highlighted Only', 'Show All'), \
     'showtitles_tvshows'        :('Highlighted Only', 'Show All'), \
     'showtitles_homevideos'     :('Highlighted Only', 'Show All'), \
