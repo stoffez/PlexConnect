@@ -17,15 +17,23 @@
           <color name="titleColor">#fafafa</color>
           <color name="metadataColor">#fafafa</color>
         </styles>
+        
+    <!--Fanart-->
     <header>
-
 	    <imageHeader>
             <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=700)}}, 0" required="true">
                 {{BACKGROUNDURL(art:)}}
             </image>
 	    </imageHeader>
+	</header>{{CUT($fanart::Banner=CUT|Fanart=)}}
+	
+	<!--Banner-->
+	    <header>
+        <imageHeader>
+            <image insets="5, 0, 0, 0" required="true">{{IMAGEURL(banner)}}</image>
+        </imageHeader>
+      </header>{{CUT($fanart::Fanart=CUT|Banner=)}}
 
-      </header>
       <menu>
         <sections>
           <menuSection>

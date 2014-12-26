@@ -1551,7 +1551,7 @@ class CCommandCollection(CCommandHelper):
         total, leftover, dfltd = self.getKey(src, srcXML, param)
         viewed, leftover, dfltd = self.getKey(src, srcXML, leftover)
         unwatched = int(total) - int(viewed)
-        if unwatched > 0: return self._("{0} unwatched").format(unwatched)
+        if unwatched >= 0: return self._("{0} unwatched").format(unwatched)
         else: return ""
     
     def ATTRIB_TEXT(self, src, srcXML, param):
