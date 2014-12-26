@@ -15,7 +15,7 @@
         <sections>
           <menuSection>
             <items>
-              <twoLineEnhancedMenuItem id="{{VAL(ratingKey)}}"
+              <oneLineMenuItem id="{{VAL(ratingKey)}}"
                                          onPlay="atv.loadURL('{{URL()}}&amp;PlexConnect=Play:Continuous:{{VAL(ratingKey)}}')"
                                          onSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=EpisodePrePlay')"
                                          onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
@@ -23,22 +23,33 @@
                 <label>{{VAL(title)}}</label>
                 <ordinal>{{VAL(index)}}</ordinal>
                 <maxOrdinalDigits>2</maxOrdinalDigits>
-                <image>{{IMAGEURL(thumb::800)}}</image>
-                <!--<defaultImage>resource://16X9.png</defaultImage>      This causes the thumbnail to be too small, not sure why.-->
                 <accessories>
                   <unplayedDot/>{{CUT(viewOffset)}}
                   <partiallyPlayedDot/>
                 </accessories>{{CUT(viewCount)}}
                 <preview>
-                  <keyedPreview>
+                  <longDescriptionPreview>
                     <title>{{VAL(title)}}</title>
-                    <summary>{{VAL(summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
-                    <summary>{{VAL(summary)}}</summary>{{CUT(viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
+                    <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
+                    <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT(viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
                     <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
-                    <image>{{IMAGEURL(thumb::800)}}</image>
-                  </keyedPreview>
+                    <image required="true">{{IMAGEURL(thumb::800)}}</image>
+
+                    <metadata>
+                      <label>{{VAL(originallyAvailableAt)}}</label>
+                      <label>{{VAL(#studio)}}</label>
+                      <label>{{durationToString(NoKey:Video:duration)}}</label>   
+                      <label>{{VAL(Media/videoResolution:Unknown:1080=1080p|720=720p|576=576 SD|480=480 SD|sd=SD)}}   {{VAL(Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Media/audioChannels:Unknown:2=Stereo 2.0|6=5.1|8=7.1)}} </label>
+                      <starRating hasUserSetRating="true">
+                        <percentage>{{EVAL({{VAL(userRating:0)}} * 10)}}</percentage>
+                      </starRating>{{CUT(userRating:CUT:0=)}}
+                      <starRating>
+                        <percentage>{{EVAL({{VAL(rating:0)}} * 10)}}</percentage>
+                      </starRating>{{CUT(userRating::0=CUT)}}             
+                    </metadata>
+                  </longDescriptionPreview>
                 </preview>
-              </twoLineEnhancedMenuItem>{{CUT(Video/title:CUT:=)}}
+              </oneLineMenuItem>{{CUT(Video/title:CUT:=)}}
 
               <oneLineMenuItem id="none">
                 <label>{{TEXT(No episodes)}}</label>
