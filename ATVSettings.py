@@ -15,48 +15,48 @@ options = { \
     'showchannels'     :('True', 'False'), \
     'showsharedlibraries'   :('True', 'False'), \
     'showplayinfos'             :('True', 'False'), \
-    'libraryview'       :('List', 'Grid', 'Bookcase'), \
+    'libraryview'       :('Grid', 'List', 'Bookcase'), \
     'libraryview_remote'       :('List', 'Grid', 'Bookcase'), \
     'movieview'         :('Grid', 'List', 'Detailed List', 'Bookcase'), \
-    'homevideoview'     :('Grid', 'List', 'Detailed List'), \
+    'homevideoview'     :('List', 'Grid', 'Detailed List'), \
     'actorview'         :('Movies', 'Portrait'), \
-    'showview'          :('List', 'Detailed List', 'Grid', 'Bookcase'), \
+    'showview'          :('Detailed List', 'List', 'Grid', 'Bookcase'), \
     'flattenseason'     :('False', 'True'), \
-    'seasonview'        :('List', 'Coverflow'), \
+    'seasonview'        :('List', 'Artwork', 'Coverflow'), \
     'channelview'       :('List', 'Grid', 'Bookcase'), \
     'durationformat'    :('Hours/Minutes', 'Minutes'), \
     'moviefanart'       :('Hide', 'Show'), \
     'tvshowfanart'          :('Hide', 'Show'), \
-    'fanart'          :('Banner', 'Fanart'), \
+    'fanart'          :('Fanart', 'Banner'), \
     'fanart_blur'           :('0', '5', '10', '15', '20'), \
     'moviepreplay_bottomshelf'  :('Others Starring', 'Extras', 'Related Movies'), \
-    'showtitles_movies'         :('Highlighted Only', 'Show All'), \
-    'showtitles_tvshows'        :('Highlighted Only', 'Show All'), \
-    'showtitles_homevideos'     :('Highlighted Only', 'Show All'), \
-    'showtitles_channels'       :('Highlighted Only', 'Show All'), \
-    'movies_navbar_ondeck'      :('checked', 'unchecked'), \
-    'movies_navbar_unwatched'   :('checked', 'unchecked'), \
-    'movies_navbar_byfolder'    :('checked', 'unchecked'), \
-    'movies_navbar_collections' :('checked', 'unchecked'), \
-    'movies_navbar_genres'      :('checked', 'unchecked'), \
-    'movies_navbar_decades'     :('checked', 'unchecked'), \
-    'movies_navbar_directors'   :('checked', 'unchecked'), \
-    'movies_navbar_actors'      :('checked', 'unchecked'), \
-    'movies_navbar_more'        :('checked', 'unchecked'), \
-    'homevideos_navbar_ondeck'      :('checked', 'unchecked'), \
-    'homevideos_navbar_unwatched'   :('checked', 'unchecked'), \
-    'homevideos_navbar_byfolder'    :('checked', 'unchecked'), \
-    'homevideos_navbar_collections' :('checked', 'unchecked'), \
-    'homevideos_navbar_genres'      :('checked', 'unchecked'), \
-    'music_navbar_recentlyadded'    :('checked', 'unchecked'), \
-    'music_navbar_genre'            :('checked', 'unchecked'), \
-    'music_navbar_decade'           :('checked', 'unchecked'), \
-    'music_navbar_year'             :('checked', 'unchecked'), \
-    'music_navbar_more'             :('checked', 'unchecked'), \
-    'tv_navbar_ondeck'          :('checked', 'unchecked'), \
-    'tv_navbar_unwatched'       :('checked', 'unchecked'), \
-    'tv_navbar_genres'          :('checked', 'unchecked'), \
-    'tv_navbar_more'            :('checked', 'unchecked'), \
+    'showtitles_movies'         :('Show All', 'Highlighted Only'), \
+    'showtitles_tvshows'        :('Show All', 'Highlighted Only'), \
+    'showtitles_homevideos'     :('Show All', 'Highlighted Only'), \
+    'showtitles_channels'       :('Show All', 'Highlighted Only'), \
+    'movies_navbar_ondeck'      :('unchecked', 'checked'), \
+    'movies_navbar_unwatched'   :('unchecked', 'checked'), \
+    'movies_navbar_byfolder'    :('unchecked', 'checked'), \
+    'movies_navbar_collections' :('unchecked', 'checked'), \
+    'movies_navbar_genres'      :('unchecked', 'checked'), \
+    'movies_navbar_decades'     :('unchecked', 'checked'), \
+    'movies_navbar_directors'   :('unchecked', 'checked'), \
+    'movies_navbar_actors'      :('unchecked', 'checked'), \
+    'movies_navbar_more'        :('unchecked', 'checked'), \
+    'homevideos_navbar_ondeck'      :('unchecked', 'checked'), \
+    'homevideos_navbar_unwatched'   :('unchecked', 'checked'), \
+    'homevideos_navbar_byfolder'    :('unchecked', 'checked'), \
+    'homevideos_navbar_collections' :('unchecked', 'checked'), \
+    'homevideos_navbar_genres'      :('unchecked', 'checked'), \
+    'music_navbar_recentlyadded'    :('unchecked', 'checked'), \
+    'music_navbar_genre'            :('unchecked', 'checked'), \
+    'music_navbar_decade'           :('unchecked', 'checked'), \
+    'music_navbar_year'             :('unchecked', 'checked'), \
+    'music_navbar_more'             :('unchecked', 'checked'), \
+    'tv_navbar_ondeck'          :('unchecked', 'checked'), \
+    'tv_navbar_unwatched'       :('unchecked', 'checked'), \
+    'tv_navbar_genres'          :('unchecked', 'checked'), \
+    'tv_navbar_more'            :('unchecked', 'checked'), \
     'transcodequality'  :('1080p 40.0Mbps', \
                           '480p 2.0Mbps', \
                           '720p 3.0Mbps', '720p 4.0Mbps', \
@@ -70,10 +70,10 @@ options = { \
     'subtitlesize'      :('100', '125', '150', '50', '75'), \
     'audioboost'        :('100', '175', '225', '300'), \
     'showunwatched'     :('True', 'False'), \
-    'showsynopsis'      :('Hide', 'Show'), \
+    'showsynopsis'      :('Show', 'Hide'), \
     'showplayerclock'   :('True', 'False'), \
     'overscanadjust'    :('0', '1', '2', '3', '-3', '-2', '-1'), \
-    'clockposition'     :('Center', 'Right', 'Left'), \
+    'clockposition'     :('Right', 'Center', 'Left'), \
     'showendtime'       :('True', 'False'), \
     'timeformat'        :('24 Hour', '12 Hour'), \
     'myplex_user'       :('', ), \
