@@ -77,6 +77,9 @@
         <!-- servers -->
         <__COPY__>
         {{COPY(Server:@main/size::0=|1=COPY)}}
+         <collectionDivider alignment="left" accessibilityLabel="Library">
+            <title>{{VAL(name)}}</title>
+        </collectionDivider>
           <shelf id="Library_Grid_{{VAL(name)}}" columnCount="5">
           
             <sections>
