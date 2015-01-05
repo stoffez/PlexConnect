@@ -22,7 +22,7 @@
       
       {{VAR(parentThumb:thumb)}}
       <items>
-        <grid columnCount="5" id="grid_0">
+        <grid id="grid_0" columnCount="{{EVAL(min({{VAL(size:0)}},5))}}">
           <items>
             <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_tvshows::Highlighted Only=false|Show All=true)}}"
 															onPlay="atv.loadURL('{{URL(key)}}')"

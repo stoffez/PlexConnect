@@ -31,12 +31,14 @@
 											<label>{{TEXT(Director)}}</label>
 											<label>{{TEXT(Genre)}}</label>
 											<label>{{TEXT(Studio)}}</label>
+											<label>{{TEXT(Released)}}</label>
 										</metadataKeys>
 										<metadataValues>
 											<label>{{VAL(Role/tag)}}{{VAL(Role[2]/tag::=, )}}{{VAL(Role[2]/tag)}}{{VAL(Role[3]/tag::=, )}}{{VAL(Role[3]/tag)}}</label>
 											<label>{{VAL(Director/tag)}}</label>
 											<label>{{VAL(Genre/tag)}}{{VAL(Genre[2]/tag::=, )}}{{VAL(Genre[2]/tag)}}</label>
 											<label>{{VAL(studio)}}</label>
+											<label>{{VAL(originallyAvailableAt)}}</label>
 										</metadataValues>
                   </keyedPreview>
                 </preview>

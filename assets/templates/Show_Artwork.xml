@@ -20,7 +20,7 @@
             <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_tvshows::Highlighted Only=false|Show All=true)}}"
                          onPlay="flattenSeason('{{URL(key)}}', '{{SETTING(flattenseason)}}', 'False')"
                          onSelect="flattenSeason('{{URL(key)}}', '{{SETTING(flattenseason)}}', 'False')"
-                         onHoldSelect="scrobbleMenu('{{stripChildrenURL(key)}}&amp;PlexConnect=ScrobbleMenuDirectory')">
+                         onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenu')">
               {{COPY(Directory)}}
               <title>{{VAL(title)}}</title>
                 <image>{{IMAGEURL(thumb::768)}}</image>

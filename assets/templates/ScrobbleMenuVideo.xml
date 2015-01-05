@@ -23,6 +23,10 @@
             </header>
             
             <items>
+            <oneLineMenuItem id="playTrailer" onSelect="playTrailer('{{VAL_QUOTED(Video/title)}}','{{VAL(Video/year)}}')"
+                                        onPlay="playTrailer('{{VAL_QUOTED(Video/title)}}','{{VAL(Video/year)}}')">
+                <label>{{TEXT(Play Trailer)}}</label>
+              </oneLineMenuItem>
               <oneLineMenuItem id="item2" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'scrobble');atv.unloadPage();">
                 <label>{{TEXT(Mark as Watched)}}</label>
               </oneLineMenuItem>
@@ -47,6 +51,10 @@
       <sections>
         <menuSection>
           <items>
+          <oneLineMenuItem id="playTrailer" onSelect="playTrailer('{{VAL_QUOTED(Video/title)}}','{{VAL(Video/year)}}')"
+                                        onPlay="playTrailer('{{VAL_QUOTED(Video/title)}}','{{VAL(Video/year)}}')">
+                <label>{{TEXT(Play Trailer)}}</label>
+              </oneLineMenuItem>
             <oneLineMenuItem id="item2" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'scrobble');updateContextXML();">
               <label>{{TEXT(Mark as Watched)}}</label>
             </oneLineMenuItem>

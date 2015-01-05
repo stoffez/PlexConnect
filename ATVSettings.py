@@ -10,20 +10,16 @@ from Debug import *  # dprint()
 
 
 options = { \
-    'showplaylists'     :('True', 'False'), \
-    'showlibrary'		:('True', 'False'), \
-    'showchannels'     :('True', 'False'), \
-    'showsharedlibraries'   :('True', 'False'), \
-    'showplayinfos'             :('True', 'False'), \
-    'libraryview'       :('Grid', 'List', 'Bookcase'), \
-    'libraryview_remote'       :('List', 'Grid', 'Bookcase'), \
-    'movieview'         :('Grid', 'List', 'Detailed List', 'Bookcase'), \
+    'playlistsview'             :('List', 'Hide'), \
+    'libraryview'       :('List', 'Grid', 'Bookcase', 'Hide'), \
+    'libraryview_remote'       :('List', 'Grid', 'Bookcase', 'Hide'), \
+    'movieview'         :('Grid', 'List', 'Detailed List', 'Artwork'), \
     'homevideoview'     :('List', 'Grid', 'Detailed List'), \
     'actorview'         :('Movies', 'Portrait'), \
-    'showview'          :('Detailed List', 'List', 'Grid', 'Bookcase'), \
+    'showview'          :('Detailed List', 'List', 'Grid', 'Artwork'), \
     'flattenseason'     :('False', 'True'), \
     'seasonview'        :('List', 'Artwork', 'Coverflow'), \
-    'channelview'       :('List', 'Grid', 'Bookcase'), \
+    'channelview'       :('List', 'Grid', 'Bookcase', 'Hide'), \
     'durationformat'    :('Hours/Minutes', 'Minutes'), \
     'moviefanart'       :('Hide', 'Show'), \
     'tvshowfanart'          :('Hide', 'Show'), \
@@ -72,6 +68,7 @@ options = { \
     'showunwatched'     :('True', 'False'), \
     'showsynopsis'      :('Show', 'Hide'), \
     'showplayerclock'   :('True', 'False'), \
+    'showplayinfos'             :('True', 'False'), \
     'overscanadjust'    :('0', '1', '2', '3', '-3', '-2', '-1'), \
     'clockposition'     :('Right', 'Center', 'Left'), \
     'showendtime'       :('True', 'False'), \

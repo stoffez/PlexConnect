@@ -39,7 +39,7 @@
         <menuSection>
             <header>
               <horizontalDivider alignment="left">
-                <title>{{TEXT(Library)}}</title>
+                <title>{{TEXT(Main Navigation)}}</title>
               </horizontalDivider>
             </header>
             <items>
@@ -51,36 +51,17 @@
                 <label>{{TEXT(Library View Remote)}}</label>
                 <rightLabel>{{SETTING(libraryview_remote)}}</rightLabel>
               </oneLineMenuItem>
-            </items>
-          </menuSection>
-        
-          <menuSection>
-            <header>
-              <horizontalDivider alignment="left">
-                <title>{{TEXT(Navigation Bar)}}</title>
-              </horizontalDivider>
-            </header>
-            <items>
-              <oneLineMenuItem id="ShowPlayLists" onSelect="toggleSettings('ShowPlayLists', 'Settings_TopLevel')">
-                <label>{{TEXT(Show Playlists)}}</label>
-                <rightLabel>{{SETTING(showplaylists)}}</rightLabel>
+              <oneLineMenuItem id="ChannelView" onSelect="toggleSettings('ChannelView', 'Settings_TopLevel')">
+                <label>{{TEXT(Channel View)}}</label>
+                <rightLabel>{{SETTING(channelview)}}</rightLabel>
               </oneLineMenuItem>
-              <oneLineMenuItem id="ShowLibrary" onSelect="toggleSettings('ShowLibrary', 'Settings_TopLevel')">
-                <label>{{TEXT(Show Library)}}</label>
-                <rightLabel>{{SETTING(showlibrary)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="ShowChannels" onSelect="toggleSettings('ShowChannels', 'Settings_TopLevel')">
-                <label>{{TEXT(Show Channels)}}</label>
-                <rightLabel>{{SETTING(showchannels)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="ShowSharedLibraries" onSelect="toggleSettings('ShowSharedLibraries', 'Settings_TopLevel')">
-                <label>{{TEXT(Show Shared Libraries)}}</label>
-                <rightLabel>{{SETTING(showsharedlibraries)}}</rightLabel>
+              <oneLineMenuItem id="PlayListsView" onSelect="toggleSettings('PlayListsView', 'Settings_TopLevel')">
+                <label>{{TEXT(Playlist View)}}</label>
+                <rightLabel>{{SETTING(playlistsview)}}</rightLabel>
               </oneLineMenuItem>
             </items>
           </menuSection>
           <menuSection>
-          
             <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Fanart)}}</title>
@@ -97,15 +78,15 @@
                 <rightLabel>{{SETTING(tvshowfanart)}}</rightLabel>{{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
                 <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>{{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
               </oneLineMenuItem>
-               <oneLineMenuItem id="Fanart" onSelect="toggleSettings('Fanart', 'Settings_TopLevel')">
+               <oneLineMenuItem id="Fanart" dimmed="{{EVAL(['true','false'][isPILinstalled()])}}" onSelect="toggleSettings('Fanart', 'Settings_TopLevel')">
                 <label>{{TEXT(Fanart Type)}}</label>
-                <rightLabel>{{SETTING(fanart)}}</rightLabel>
-              </oneLineMenuItem>{{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
-              <oneLineMenuItem id="Fanart_Blur" onSelect="toggleSettings('Fanart_Blur', 'Settings_TopLevel')">
-              {{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
-              {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
+                <rightLabel>{{SETTING(fanart)}}</rightLabel>{{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
+                <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>{{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
+              </oneLineMenuItem>
+              <oneLineMenuItem id="Fanart_Blur" dimmed="{{EVAL(['true','false'][isPILinstalled()])}}" onSelect="toggleSettings('Fanart_Blur', 'Settings_TopLevel')">
                 <label>{{TEXT(Fanart Lower Blur)}}</label>
-                <rightLabel>{{SETTING(fanart_blur)}}</rightLabel>
+                <rightLabel>{{SETTING(fanart_blur)}}</rightLabel>{{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
+                <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>{{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
               </oneLineMenuItem>
             </items>
           </menuSection>
@@ -193,7 +174,6 @@
               </oneLineMenuItem>
             </items>
           </menuSection>
-          
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
@@ -201,10 +181,6 @@
               </horizontalDivider>
             </header>
             <items>
-              <oneLineMenuItem id="ChannelView" onSelect="toggleSettings('ChannelView', 'Settings_TopLevel')">
-                <label>{{TEXT(Channel View)}}</label>
-                <rightLabel>{{SETTING(channelview)}}</rightLabel>
-              </oneLineMenuItem>
               <oneLineMenuItem id="ShowTitles_Channels" onSelect="toggleSettings('ShowTitles_Channels', 'Settings_TopLevel')">
                 <label>{{TEXT(Poster Titles)}}</label>
                 <rightLabel>{{SETTING(showtitles_channels)}}</rightLabel>

@@ -47,10 +47,10 @@
                 <ordinal>{{VAL(index)}}</ordinal>
                 <maxOrdinalDigits>2</maxOrdinalDigits>
                 <accessories>
-                <unplayedDot/>{{CUT(viewOffset)}}
+                <unplayedDot/>{{CUT(viewCount)}}{{CUT(viewOffset)}}
                   <progressBar percentage="{{EVAL({{VAL(viewOffset:0)}} * 100 / {{VAL(duration:1)}})}}"/>{{CUT(viewOffset:CUT:=)}}
                 <!---<progressBar percentage="100"/>{{CUT(viewCount:CUT:=)}}{{CUT(viewOffset)}}-->
-                </accessories>{{CUT(viewCount)}}
+                </accessories>
 
                 <preview>
                   <longDescriptionPreview>

@@ -19,11 +19,12 @@
 	    </imageHeader>
 	   </header>
       <title>{{VAL(Video/index)}}. {{VAL(Video/title)}}</title>
-      <subtitle>{{VAL(Video/studio)}}</subtitle>
+      <subtitle>Aired: {{VAL(Video/originallyAvailableAt)}}</subtitle>
+      <rating>{{contentRating(Video/contentRating)}}</rating>
       <summary>{{VAL(Video/summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
       <summary>{{VAL(Video/summary)}}</summary>{{CUT(Video/viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
       <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(Video/viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
-      <image style="sixteenByNinePoster">{{IMAGEURL(Video/thumb::768)}}</image>
+      <image style="sixteenByNinePoster">{{IMAGEURL(Video/parentThumb::768)}}</image>
       <defaultImage>resource://16x9.png</defaultImage>
 
       <table>
