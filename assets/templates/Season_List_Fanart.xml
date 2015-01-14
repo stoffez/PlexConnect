@@ -2,18 +2,24 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
   </head>
- 
- <body>
-     <scroller id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Season_BigArtwork)}}')">
+
+  <body>
+    <itemCollectionWithImageHeader id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL()}}')">
+   	  <styles>
+          <color name="titleColor">#fafafa</color>
+          <color name="metadataColor">#fafafa</color>
+        </styles>
+        
+    <!--Fanart-->    
       <header>
-    <imageHeader>
-           <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=550|1080=900)}}, 0" required="true">
-            {{BACKGROUNDURL(art:)}}
-           </image>
+        <imageHeader>
+            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=700)}}, 0" required="true">
+                {{BACKGROUNDURL(art:)}}
+            </image>
         </imageHeader>
       </header>{{CUT($fanart::Banner=CUT|Fanart=)}}
       
-      <!--Banner--> 
+    <!--Banner--> 
       <header>
         <imageHeader>
             <image insets="5, 0, 0, 0" required="true">{{IMAGEURL(banner)}}</image>
@@ -21,28 +27,47 @@
       </header>{{CUT($fanart::Fanart=CUT|Banner=)}}
       
       {{VAR(parentThumb:thumb)}}
-      <items>
-        <grid columnCount="5" id="grid_0">
-          <items>
-            <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_tvshows::Highlighted Only=false|Show All=true)}}"
-															onPlay="atv.loadURL('{{URL(key)}}')"
-                              onSelect="atv.loadURL('{{URL(key)}}')"
-                              onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenu')">
-              {{COPY(Directory)}}
-              <title>{{VAL(title)}}</title>
-              <image>{{IMAGEURL(thumb::768)}}</image>{{CUT(thumb:CUT:=CUT| =)}}
-              <image>{{IMAGEURL(#parentThumb::768)}}</image>{{CUT(thumb:: =CUT)}}
-              <defaultImage>resource://Poster.png</defaultImage>
-              <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
-             </goldenPoster>{{CUT(Directory/title:CUT:=)}}
+      <menu>
+        <sections>
+          <menuSection>
+            <items>
+              <oneLineMenuItem id="{{VAL(key)}}" onPlay="atv.loadURL('{{URL(key)}}')"
+                                                         onSelect="atv.loadURL('{{URL(key)}}')"
+                                                         onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenu')">
+                {{COPY(Directory:title::All=|Season=COPY)}}
+                <label>{{VAL(title)}}</label>
+                
+                <rightLabel>{{unwatchedCountList(leafCount:0:viewedLeafCount:0)}}</rightLabel>{{CUT($showunwatched::False=CUT|True=)}}
+                
+                <preview>
+                  <longDescriptionPreview>
+                    <title>{{VAL(title)}}</title>
+                    <summary><![CDATA[{{VAL(/summary)}}]]></summary>
+                    <image>{{IMAGEURL(thumb::768)}}</image>{{CUT(thumb:CUT:=CUT| =)}}
+                    <image>{{IMAGEURL(#parentThumb::768)}}</image>{{CUT(thumb:: =CUT)}}
+                    <metadata>
+                      <mainLabel>{{VAL(/parentTitle)}}</mainLabel>
+                      <label>{{VAL(/parentYear)}}</label>
+                      <!--<label>{{durationToString(NoKey:Video:duration)}}</label>   
+                      <label>{{VAL(Media/videoResolution:Unknown:1080=1080p|720=720p|576=576 SD|480=480 SD|sd=SD)}}   {{VAL(Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Media/audioChannels:Unknown:2=Stereo 2.0|6=5.1|8=7.1)}} </label>
+                      <starRating hasUserSetRating="true">
+                        <percentage>{{EVAL({{VAL(userRating:0)}} * 10)}}</percentage>
+                      </starRating>{{CUT(userRating:CUT:0=)}}
+                      <starRating>
+                        <percentage>{{EVAL({{VAL(rating:0)}} * 10)}}</percentage>
+                      </starRating>{{CUT(userRating::0=CUT)}} -->            
+                    </metadata>
+                  </longDescriptionPreview>
+                </preview>
+              </oneLineMenuItem>{{CUT(Directory/title:CUT:=)}}
 
-            <goldenPoster id="none">
-              <title>{{TEXT(No Unwatched Shows)}}</title>
-              <defaultImage>resource://Poster.png</defaultImage>
-            </goldenPoster>{{CUT(Directory/title::=CUT)}}
-          </items>
-        </grid>
-      </items>
-    </scroller>  
+              <oneLineMenuItem id="none">
+                <label>{{TEXT(No Seasons)}}</label>
+              </oneLineMenuItem>{{CUT(Directory/title::=CUT)}}
+            </items>
+          </menuSection>
+        </sections>
+      </menu>
+    </itemCollectionWithImageHeader>
   </body>
 </atv>
