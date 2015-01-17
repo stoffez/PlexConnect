@@ -19,7 +19,7 @@
         <navigationItem id="Channels">
           <title>{{TEXT(Channels)}}</title>
           <url>{{URL(:/PMS(owned)/channels/all)}}</url>
-        </navigationItem>{{CUT($channelview:CUT:=|Hide=CUT|Hide =)}}
+        </navigationItem>{{CUT($channelview::Hide=CUT|List=|Grid=|Library=CUT)}}
         <navigationItem id="SharedLibraries">
           <title>{{TEXT(Shared Libraries)}}</title>
           <url>{{URL(:/PMS(shared)/library/sections)}}</url>

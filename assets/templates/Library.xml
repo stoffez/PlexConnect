@@ -156,6 +156,31 @@
             </shelfSection>
           </sections>
         </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}} 
+        
+        <collectionDivider alignment="left" accessibilityLabel="Channels">
+            <title>{{TEXT(Channels)}}</title>
+        </collectionDivider>{{CUT(@VideoChannels/Server/size:CUT:0=CUT|1=)}}{{CUT($channelview::Library=|List=CUT|Grid=CUT|Hide=CUT)}}
+        <shelf id="shelf_3" columnCount="8">
+            {{CUT(@VideoChannels/Server/size:CUT:0=CUT|1=)}}
+            <sections>                             
+                <shelfSection>
+                    {{COPY(@VideoChannels/Server:size::0=|1=COPY)}}
+                    <items>
+                        <!-- /library/sections -->
+                        <moviePoster id="Video_{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="true"
+                                       onPlay="atv.loadURL('{{URL(key)}}&amp;PlexConnect=ChannelsVideo')"
+                                       onSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=ChannelsVideo')">
+                            {{COPY(Directory)}}
+                            {{VAR(channels:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
+                            <title>{{VAL(title)}}</title>
+                            <image>{{IMAGEURL(thumb::)}}</image>
+                            <defaultImage>resource://Square.png</defaultImage>
+                        </moviePoster>
+                    </items>
+                </shelfSection>
+          </sections>
+        </shelf>{{CUT(@VideoChannels/Server/size:CUT:0=CUT|1=)}}{{CUT($channelview::Library=|List=CUT|Grid=CUT|Hide=CUT)}}
+        
       </items>
     </scroller>{{CUT(#sections::FALSE=CUT|TRUE=)}}  <!--CUT if no section added-->
     

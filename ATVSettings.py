@@ -19,7 +19,7 @@ options = { \
     'showview'          :('Detailed List', 'List', 'Grid', 'Artwork'), \
     'flattenseason'     :('False', 'True'), \
     'seasonview'        :('List', 'Artwork', 'Coverflow'), \
-    'channelview'       :('List', 'Grid', 'Bookcase', 'Hide'), \
+    'channelview'       :('Library', 'Grid', 'List', 'Hide'), \
     'durationformat'    :('Hours/Minutes', 'Minutes'), \
     'moviefanart'       :('Hide', 'Show'), \
     'tvshowfanart'          :('Hide', 'Show'), \
