@@ -9,7 +9,7 @@
 			<navigation currentIndex="{{VAL($homevideos_navbar_ondeck:0:unchecked=0|checked=1)}}">
 
       <navigationItem id="All">
-					<title>{{TEXT(All Videos)}}</title>
+					<title>{{VAL(title1)}}</title>
 					<url>{{URL(key)}}/all&amp;PlexConnect=AllHomeVideos</url>
 				</navigationItem>
 
