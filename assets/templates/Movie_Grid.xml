@@ -4,7 +4,7 @@
   </head>
 
   <body>
-      {{ADDXML(recentlyAdded::/library/sections/{{VAL(librarySectionID)}}/recentlyAdded?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=20)}}
+      {{ADDXML(newest::/library/sections/{{VAL(librarySectionID)}}/newest?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=40)}}
       {{VAR(items:NoKey:FALSE)}}
       
       <scroller id="Movie_Overview">
@@ -15,11 +15,11 @@
       </header>
       <items>
           <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-              <title>{{TEXT(Recently Added)}}</title>
-          </collectionDivider>{{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}
+              <title>{{TEXT(Recently Released)}}</title>
+          </collectionDivider>{{CUT(@newest/size:CUT:0=CUT|1=)}}
           
           <shelf id="shelf_0" columnCount="7">
-              {{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}
+              {{CUT(@newest/size:CUT:0=CUT|1=)}}
               <sections>
                   <shelfSection>
                       <items>
@@ -27,7 +27,7 @@
                              onPlay="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Play::{{VAL(ratingKey)}}')"
                              onSelect="atv.loadURL('{{URL(key)}}?includeExtras=1&amp;PlexConnect=MoviePrePlay')"
                              onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
-                              {{COPY(@recentlyAdded/Video)}}
+                              {{COPY(@newest/Video)}}
                               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                               <title>{{VAL(title)}}</title>
                               <subtitle>{{VAL(year:&#x00AD;)}}</subtitle>
@@ -38,7 +38,6 @@
                   </shelfSection>
               </sections>
           </shelf>
-
 
 <collectionDivider alignment="left" accessibilityLabel="Movies">
     <title>All Movies</title>
