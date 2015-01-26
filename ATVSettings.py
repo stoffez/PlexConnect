@@ -10,6 +10,7 @@ from Debug import *  # dprint()
 
 
 options = { \
+	'showplaylists'     :('True', 'False'), \
     'playlistsview'             :('List', 'Hide'), \
     'libraryview'       :('List', 'Grid', 'Bookcase', 'Hide'), \
     'libraryview_remote'       :('List', 'Grid', 'Bookcase', 'Hide'), \
