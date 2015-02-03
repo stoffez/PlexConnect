@@ -1,0 +1,73 @@
+<atv>
+  <head>
+    <script src="{{URL(:/js/utils.js)}}" />
+  </head>
+  
+  <body>
+      {{ADDXML(newest::/library/sections/{{VAL(librarySectionID)}}/newest?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=40)}}
+      {{VAR(items:NoKey:FALSE)}}
+      
+    <scroller id="com.sample.movie-grid">
+    {{CUT(size:CUT:0=CUT|1=)}}
+      <header>
+        <simpleHeader>
+          <title>{{VAL(title1)}}</title>
+        </simpleHeader>
+      </header>
+      <items>
+          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
+              <title>{{TEXT(Recently Released)}}</title>
+          </collectionDivider>{{CUT(@newest/size:CUT:0=CUT|1=)}}
+         
+          <shelf id="shelf_0" columnCount="7">
+              {{CUT(@newest/size:CUT:0=CUT|1=)}}
+              <sections>
+                  <shelfSection>
+                      <items>
+                          <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="{{VAL($showtitles_movies::Highlighted Only=false|Show All=true)}}"
+                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
+                              onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}})}}')"
+                              onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
+                              {{COPY(@newest/Video)}}
+                              {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
+                              <title>{{VAL(title)}}</title>
+                              <subtitle>{{VAL(year:&#x00AD;)}}</subtitle>
+                              <image>{{IMAGEURL(thumb::384)}}</image>
+                              <defaultImage>resource://Poster.png</defaultImage>
+                          </moviePoster>
+                      </items>
+                  </shelfSection>
+              </sections>
+          </shelf>
+          
+          
+          <collectionDivider alignment="left" accessibilityLabel="Movies">
+   <title>{{TEXT(All Movies)}}</title>
+    </collectionDivider>
+
+        <grid columnCount="7" id="grid_0">
+          <items>
+            <moviePoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($showtitles_movies::Highlighted Only=false|Show All=true)}}"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
+                             onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}})}}')"
+                             onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
+              {{COPY(Video)}}
+              <title>{{VAL(title)}}</title>
+              <subtitle>{{VAL(year:&#x00AD;)}}</subtitle>
+              <image>{{IMAGEURL(thumb::384)}}</image>
+              <defaultImage>resource://Poster.png</defaultImage>
+            </moviePoster>
+          </items>
+        </grid>
+      </items>
+    </scroller>
+    
+    <!--No Items Available-->
+    <dialog id="com.sample.error-dialog">
+    {{CUT(size::0=|1=CUT)}}
+      <title>PlexConnect</title>
+      <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
+    </dialog>
+    
+  </body>
+</atv>
