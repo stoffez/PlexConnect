@@ -4,7 +4,7 @@
   </head>
  
  <body>
-     <scroller id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Season_BigArtwork)}}')">
+     <scroller id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Season_Artwork_Fanart)}}')">
       <header>
      <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=550|1080=580)}}, 0" required="true">
@@ -18,8 +18,8 @@
         <grid id="grid_0" columnCount="{{EVAL(min({{VAL(size:0)}},5))}}">
           <items>
             <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_tvshows::Highlighted Only=false|Show All=true)}}"
-							  onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
-                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
+							  onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
+                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
                               onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_Menu)}}')">
               {{COPY(Directory)}}
               <title>{{VAL(title)}}</title>

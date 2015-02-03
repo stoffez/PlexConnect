@@ -7,7 +7,8 @@
     <scroller id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Season_Coverflow)}}')">
       <header>
         <simpleHeader>
-          <title>{{VAL(title2)}}</title>
+          <title>{{VAL(title1)}}</title>
+          <subtitle>{{VAL(title2)}}</subtitle>
         </simpleHeader>
       </header>
       {{VAR(parentThumb:thumb)}}
@@ -20,8 +21,8 @@
             <shelfSection>
               <items>
                 <goldenPoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($showtitles_tvshows::Highlighted Only=false|Show All=true)}}"
-                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
-                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
+                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
+                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
                               onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_Menu)}}')">
                   {{COPY(Directory)}}
                   <title>{{VAL(title)}}</title>
