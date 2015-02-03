@@ -95,8 +95,8 @@
                                 onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect={{VAL(type::movie=Scrobble_MenuVideo|episode=Scrobble_MenuTVOnDeck)}})}}')">
                    {{COPY(@RecentlyAdded/Server/Video)}}      
                   {{VAR(items:NoKey:TRUE)}} 
-                  <title>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(parentTitle)}}|season={{VAL(parentTitle)}}|album={{VAL(parentTitle)}})}}</title>
-                  <subtitle>{{VAL(type::movie={{VAL(year)}}|episode={{VAL(title)}}|season={{VAL(title)}}|album={{VAL(title)}})}}</subtitle>
+                  <title>{{VAL(title)}}</title>
+                  <subtitle>{{VAL(originallyAvailableAt)}}</subtitle>
                   <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
                   <image>{{IMAGEURL(thumb::384)}}</image>        
                   <defaultImage>resource://{{VAL(type::movie=Poster|episode=Poster|season=Poster|album=Square|track=Square)}}.png</defaultImage>
@@ -117,7 +117,6 @@
               {{COPY(Server:@RecentlyAdded/size::0=|1=COPY)}}
               <items>
                 <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" showOutline="false" alwaysShowTitles="true"
-                                onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                                 onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
                                 onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect={{VAL(type::movie=Scrobble_MenuVideo|episode=Scrobble_MenuTVOnDeck)}})}}')">
                    {{COPY(@RecentlyAdded/Server/Directory)}}      

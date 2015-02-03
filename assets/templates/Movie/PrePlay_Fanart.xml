@@ -10,7 +10,7 @@
   <body>
     <itemDetailWithImageHeader layout="compact" id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}})}}')">
       <styles>
-        <color name="titleColor">#fafafa</color>
+        <color name="titleColor">#ce7f1a</color>
         <color name="metadataColor">#fafafa</color>
       </styles>
       
@@ -112,6 +112,14 @@
                   <title>{{TEXT(Audio/Subs)}}</title>
                   <image>resource://Queue.png</image>
                   <focusedImage>resource://QueueFocused.png</focusedImage>
+                </actionButton>
+                <!--Setting Button Edit -->
+                
+                <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Main')">
+                  <title>{{TEXT(Settings)}}</title>
+                  <image>resource://WishList.png</image>
+                  <focusedImage>resource://WishListFocused.png</focusedImage>
+                  <!--<badge></badge>-->
                 </actionButton>
               </items>
             </shelfSection>
