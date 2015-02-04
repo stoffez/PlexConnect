@@ -23,7 +23,8 @@
       </header>
       
       <title>{{VAL(Video/title)}} ({{VAL(Video/year)}})</title>
-      <footnote>{{VAL(Video/studio)}}</footnote>
+      <subtitle>{{VAL(Video/studio)}}</subtitle>
+      <footnote>{{VAL(Video/tagline)}}</footnote>
       <rating>{{contentRating(Video/contentRating)}}</rating>
       <summary>{{VAL(Video/summary)}}</summary>
       

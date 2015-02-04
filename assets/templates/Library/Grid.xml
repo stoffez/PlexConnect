@@ -10,8 +10,6 @@
       {{ADDXML(VideoChannels::/channels/all)}}
       {{VAR(sections:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
       {{VAR(items:NoKey:FALSE)}}
-
-    {{ADDXML(VideoChannels::/channels/all)}}
     
    <!-- Grid -->
     <scroller id="Library_Grid">
@@ -35,6 +33,8 @@
               <shelfSection>
               
                 <items>
+                {{VAR(serverName:name)}}
+                {{VAR(searchKey:searchKey)}}
                   <!-- /library/sections -->
                    <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" 
                                                alwaysShowTitles="true"

@@ -15,7 +15,7 @@
       </header>
       <items>
           <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-              <title>{{TEXT(Recently Added)}}</title>
+              <title>{{TEXT(Recently Released)}}</title>
           </collectionDivider>{{CUT(@newest/size:CUT:0=CUT|1=)}}
           
           <shelf id="shelf_0" columnCount="7">
