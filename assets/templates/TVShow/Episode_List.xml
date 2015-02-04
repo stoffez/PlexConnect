@@ -11,11 +11,11 @@
           <subtitle>{{VAL(title2)}}</subtitle>
         </simpleHeader>
       </header>
-      <menu>
+       <menu>
         <sections>
           <menuSection>
-            <items>
-              <twoLineEnhancedMenuItem id="{{VAL(ratingKey)}}"
+            <items>    
+              <oneLineMenuItem id="{{VAL(ratingKey)}}"
                                          onPlay="atv.loadURL('{{URL(:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')"
                                          onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_PrePlay{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
                                          onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
@@ -23,8 +23,6 @@
                 <label>{{VAL(title)}}</label>
                 <ordinal>{{VAL(index)}}</ordinal>
                 <maxOrdinalDigits>2</maxOrdinalDigits>
-                <image>{{IMAGEURL(thumb::800)}}</image>
-                <!--<defaultImage>resource://16X9.png</defaultImage>      This causes the thumbnail to be too small, not sure why.-->
                 <accessories>
                   <unplayedDot/>{{CUT(viewOffset)}}
                   <partiallyPlayedDot/>
@@ -38,7 +36,7 @@
                     <image>{{IMAGEURL(thumb::800)}}</image>
                   </keyedPreview>
                 </preview>
-              </twoLineEnhancedMenuItem>{{CUT(Video/title:CUT:=)}}
+              </oneLineMenuItem>{{CUT(Video/title:CUT:=)}}
 
               <oneLineMenuItem id="none">
                 <label>{{TEXT(No episodes)}}</label>

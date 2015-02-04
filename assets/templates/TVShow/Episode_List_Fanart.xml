@@ -9,6 +9,7 @@
   {{VAR(title1:title1)}}
   {{VAR(title2:title2)}}
   {{VAR(artwork:art)}}
+  {{VAR(parentThumb:thumb)}}
   
   <body>
     <itemCollectionWithImageHeader id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Episode_List_Fanart)}}')">
@@ -20,7 +21,8 @@
     <header>
 
 	    <imageHeader>
-            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=700)}}, 0" required="true">
+            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=800)}}, 0" required="true">
+
                 {{BACKGROUNDURL(art:)}}
             </image>
 	    </imageHeader>
@@ -50,7 +52,7 @@
                     <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
                     <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT(viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
                     <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
-                    <image required="true">{{IMAGEURL(thumb::800)}}</image>
+                    <image required="true">{{IMAGEURL(#parentThumb::800)}}</image>
 
                     <metadata>
                       <label>{{VAL(originallyAvailableAt)}}</label>
