@@ -13,7 +13,6 @@
     
    <!-- Grid -->
     <scroller id="Library_Grid">
-    {{CUT($libraryview:CUT:=CUT|Grid=|Grid =CUT)}}
       <header>
         <simpleHeader>
           <title>{{TEXT(Plex Library)}}</title>
