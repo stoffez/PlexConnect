@@ -91,6 +91,12 @@
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
+              <oneLineMenuItem id="MovieView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Sections)}}')">
+                <label>{{TEXT(Section Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
+              </oneLineMenuItem>
               <oneLineMenuItem id="MovieView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Movies)}}')">
                 <label>{{TEXT(Movie Options)}}</label>
                 <accessories>
