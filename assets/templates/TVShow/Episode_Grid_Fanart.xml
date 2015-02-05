@@ -16,21 +16,24 @@
       </header>
      
       <items>
-        <grid columnCount="4" id="grid_0">
-          <items>
-            <fourByThreePoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="true"
+        <pagedGrid id="paged-grid-0">
+
+<!--          <grid columnCount="15" id="grid_0">
+             <items>-->
+               <fourByThreePoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_movies::Highlighted Only=false|Show All=true)}}"
                              onPlay="atv.loadURL('{{URL(:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')"
                                          onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_PrePlay{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
                                          onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
-                 {{COPY(Video)}}
-                 <title>{{VAL(index)}}. {{VAL(title)}}</title>
-                 
+                 {{PAGEDCOPY(Video,4,2)}}
+                 <title>{{VAL(title)}}</title>
+                 <subtitle>{{VAL(originallyAvailableAt)}}</subtitle>
                  <image>{{IMAGEURL(thumb::384)}}</image>
-                 <defaultImage>resource://16x9.png</defaultImage>
-                 
-            </fourByThreePoster>
-            </items>
-         </grid>
+                 <defaultImage>resource://Poster.png</defaultImage>
+               </fourByThreePoster>
+<!--             </items>
+           </grid>-->
+        
+         </pagedGrid>
          </items>
     </scroller>
   </body>

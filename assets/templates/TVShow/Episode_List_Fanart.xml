@@ -52,9 +52,11 @@
                     <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
                     <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT(viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
                     <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
+                    <rating>{{VAL(#contentRating)}}</rating>
                     <image required="true">{{IMAGEURL(#parentThumb::800)}}</image>
 
                     <metadata>
+                    <label>{{VAL(#title2)}}</label>
                       <label>{{VAL(originallyAvailableAt)}}</label>
                       <label>{{VAL(#studio)}}</label>
                       <label>{{durationToString(NoKey:Video:duration)}}</label>   
