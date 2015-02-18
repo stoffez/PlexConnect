@@ -22,6 +22,7 @@ options = { \
     'flattenseason'             :('False', 'True'), \
     'seasonview'                :('Artwork', 'List', 'Coverflow'), \
     'durationformat'            :('Hours/Minutes', 'Minutes'), \
+    'libraryfanart'             :('Hide', 'Grey', 'Dark'), \
     'moviefanart'               :('Hide', 'Show'), \
     'tvshowfanart'              :('Hide', 'Show'), \
     'fanart_blur'               :('0', '5', '10', '15', '20'), \

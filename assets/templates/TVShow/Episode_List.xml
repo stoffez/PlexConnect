@@ -2,7 +2,12 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
   </head>
-
+ {{VAR(studio:grandparentStudio)}}
+  {{VAR(contentRating:grandparentContentRating)}}
+  {{VAR(title1:title1)}}
+  {{VAR(title2:title2)}}
+  {{VAR(artwork:art)}}
+  {{VAR(parentThumb:thumb)}}
   <body>
     <listWithPreview id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Episode_List)}}')">
       <header>
@@ -28,13 +33,27 @@
                   <partiallyPlayedDot/>
                 </accessories>{{CUT(viewCount)}}
                 <preview>
-                  <keyedPreview>
+                  <longDescriptionPreview>
                     <title>{{VAL(title)}}</title>
-                    <summary>{{VAL(summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
-                    <summary>{{VAL(summary)}}</summary>{{CUT(viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
+                    <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
+                    <summary><![CDATA[{{VAL(summary)}}]]></summary>{{CUT(viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
                     <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
-                    <image>{{IMAGEURL(thumb::800)}}</image>
-                  </keyedPreview>
+                    <rating>{{VAL(#contentRating)}}</rating>
+                    <image required="true">{{IMAGEURL(thumb::800)}}</image>
+
+                    <metadata>
+                    <label>{{VAL(#title2)}}</label>
+                      <label>{{VAL(originallyAvailableAt)}}</label>
+                      <label>{{VAL(#studio)}}</label>
+                      <label>{{durationToString(NoKey:Video:duration)}}</label>
+                      <starRating hasUserSetRating="true">
+                        <percentage>{{EVAL({{VAL(userRating:0)}} * 10)}}</percentage>
+                      </starRating>{{CUT(userRating:CUT:0=)}}
+                      <starRating>
+                        <percentage>{{EVAL({{VAL(rating:0)}} * 10)}}</percentage>
+                      </starRating>{{CUT(userRating::0=CUT)}}             
+                    </metadata>
+                  </longDescriptionPreview>
                 </preview>
               </oneLineMenuItem>{{CUT(Video/title:CUT:=)}}
 

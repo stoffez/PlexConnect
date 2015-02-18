@@ -85,12 +85,26 @@
           </menuSection>
 
           <menuSection>
+          {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
             <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Fanart)}}</title>
               </horizontalDivider>
             </header>
             <items>
+            <oneLineMenuItem id="LibraryFanart" onSelect="toggleSettings('LibraryFanart', 'Settings_Sections')">
+              {{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
+              {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
+                <label>{{TEXT(Library Fanart)}}</label>
+                <rightLabel>{{SETTING(libraryfanart)}}</rightLabel>
+              </oneLineMenuItem>
+              
+              <oneLineMenuItem id="LibraryFanart" dimmed="true">
+              {{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
+              {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
+                <label>{{TEXT(Library Fanart)}}</label>
+                <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>
+              </oneLineMenuItem>
             <oneLineMenuItem id="MovieFanart" onSelect="toggleSettings('MovieFanart', 'Settings_Sections')">
               {{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
               {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->

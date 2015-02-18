@@ -7,8 +7,10 @@ import urllib
 import urllib2
 import urlparse
 import posixpath
+import traceback
 
-import os.path
+import os
+from os import sep, path
 from Debug import * 
 
 try:
@@ -22,7 +24,7 @@ except ImportError:
 def generate(PMS_uuid, url, authtoken, resolution, blurRadius):
     cachepath = sys.path[0]+"/assets/fanartcache"
     stylepath = sys.path[0]+"/assets/thumbnails"
-
+    
     # Create cache filename
     id = re.search('/library/metadata/(?P<ratingKey>\S+)/art/(?P<fileId>\S+)', url)
     if id:
@@ -39,25 +41,28 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius):
         dprint(__name__, 1, 'Cachefile  found.')  # Debug
         return "/fanartcache/"+cachefile
     
-    # No! Request Background from PMS
-    dprint(__name__, 1, 'No Cachefile found. Generating Background.')  # Debug
-    try:
-        dprint(__name__, 1, 'Getting Remote Image.')  # Debug
-        xargs = {}
-        if authtoken:
-            xargs['X-Plex-Token'] = authtoken
-        request = urllib2.Request(url, None, xargs)
-        response = urllib2.urlopen(request).read()
-        background = Image.open(io.BytesIO(response))
-    except urllib2.URLError as e:
-        dprint(__name__, 0, 'URLError: {0} // url: {1}', e.reason, url)
-        return "/thumbnails/Background_blank_" + resolution + ".jpg"
-    except urllib2.HTTPError as e:
-        dprint(__name__, 0, 'HTTPError: {0} {1} // url: {2}', str(e.code), e.msg, url)
-        return "/thumbnails/Background_blank_" + resolution + ".jpg"
-    except IOError as e:
-        dprint(__name__, 0, 'IOError: {0} // url: {1}', str(e), url)
-        return "/thumbnails/Background_blank_" + resolution + ".jpg"
+    if url.startswith('/'):
+        background = Image.open(sys.path[0] + sep + "assets" + url)
+    else:
+        # No! Request Background from PMS
+        dprint(__name__, 1, 'No Cachefile found. Generating Background.')  # Debug
+        try:
+            dprint(__name__, 1, 'Getting Remote Image.')  # Debug
+            xargs = {}
+            if authtoken:
+                xargs['X-Plex-Token'] = authtoken
+            request = urllib2.Request(url, None, xargs)
+            response = urllib2.urlopen(request).read()
+            background = Image.open(io.BytesIO(response))
+        except urllib2.URLError as e:
+            dprint(__name__, 0, 'URLError: {0} // url: {1}', e.reason, url)
+            return "/thumbnails/Background_blank_" + resolution + ".jpg"
+        except urllib2.HTTPError as e:
+            dprint(__name__, 0, 'HTTPError: {0} {1} // url: {2}', str(e.code), e.msg, url)
+            return "/thumbnails/Background_blank_" + resolution + ".jpg"
+        except IOError as e:
+            dprint(__name__, 0, 'IOError: {0} // url: {1}', str(e), url)
+            return "/thumbnails/Background_blank_" + resolution + ".jpg"
     
     blurRadius = int(blurRadius)
     

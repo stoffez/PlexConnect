@@ -335,21 +335,24 @@ def XML_PMS2aTV(PMS_address, path, options):
     
     elif path.find('SearchResults') != -1:
         XMLtemplate = 'Channels/VideoSearchResults.xml'
-        
-    # Not a special command so split it 
-    if cmd.find('_') != -1:
-        parts = cmd.split('_', 1)
-        dir = parts[0]
-        cmd = parts[1]
-            
+
     # Special case scanners
-    if cmd.find('Scanner') != -1:
-        dprint(__name__, 0, "Section scanner found, updating command.")
+    if cmd=='S_-_BABS':
+        dprint(__name__, 1, "Found S - BABS.")
+        dir = 'TVShow'
+        cmd = 'NavigationBar'
+    elif cmd.find('Scanner') != -1:
+        dprint(__name__, 1, "Found Scanner.")
         parts = cmd.split('_')
-        dir = parts[0].replace('Series', 'TVShow')
+        dir = parts[1].replace('Series', 'TVShow')
         dir = dir.replace('Video', 'HomeVideo')
         dir = dir.replace('iTunes', 'Music')
         cmd = 'NavigationBar'
+    # Not a special command so split it 
+    elif cmd.find('_') != -1:
+        parts = cmd.split('_', 1)
+        dir = parts[0]
+        cmd = parts[1]
 
     # Commands that contain a directory
     if dir != '':
@@ -1426,14 +1429,18 @@ class CCommandCollection(CCommandHelper):
     
     def ATTRIB_BACKGROUNDURL(self, src, srcXML, param):
         key, leftover, dfltd = self.getKey(src, srcXML, param)
+        image, leftover = self.getParam(src, leftover)
         
-        if key.startswith('/'):  # internal full path.
-            key = self.PMS_baseURL + key
-        elif key.startswith('http://') or key.startswith('https://'):  # external address
-            pass
-        else:  # internal path, add-on
-            key = self.PMS_baseURL + self.path[srcXML] + key
-        
+        if image=='':
+            if key.startswith('/'):  # internal full path.
+                key = self.PMS_baseURL + key
+            elif key.startswith('http://') or key.startswith('https://'):  # external address
+                pass
+            else:  # internal path, add-on
+                key = self.PMS_baseURL + self.path[srcXML] + key
+        else:
+            key = image
+            
         auth_token = PlexAPI.getPMSProperty(self.ATV_udid, self.PMS_uuid, 'accesstoken')
         
         dprint(__name__, 0, "Background (Source): {0}", key)

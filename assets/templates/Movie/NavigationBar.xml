@@ -9,9 +9,9 @@
 			<navigation currentIndex="{{VAL($movies_navbar_ondeck:0:unchecked=0|checked=1)}}">
 
       <navigationItem id="0">
-					<title>{{TEXT(All Movies)}}</title>
-					<url>{{URL(key::/all:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}</url>
-				</navigationItem>
+     <title>{{TEXT(All Movies)}}</title>
+     <url>{{URL(key::/all:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}}{{VAL($moviefanart::Hide=|Show=_Fanart)}})}}</url>
+	</navigationItem>
 
 				<navigationItem id="1">
 					<title>{{TEXT(On Deck)}}</title>

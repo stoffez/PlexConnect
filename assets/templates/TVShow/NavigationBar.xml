@@ -9,7 +9,7 @@
 
 				<navigationItem id="All Shows">
 					<title>{{TEXT(All Shows)}}</title>
-					<url>{{URL(key::/all:PlexConnect=TVShow_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}</url>
+					<url>{{URL(key::/all:PlexConnect=TVShow_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}</url>
 				</navigationItem>
 
 				<navigationItem id="On Deck">
