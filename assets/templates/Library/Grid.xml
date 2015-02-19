@@ -87,9 +87,9 @@
           </sections>
         </shelf>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}
         
-        <collectionDivider alignment="left" accessibilityLabel="Recently Added">
+       <collectionDivider alignment="left" accessibilityLabel="Recently Added">
           {{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
-          <title>{{TEXT(Recently Added Movies)}}</title>
+          <title>{{TEXT(Recently Added)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}  
         <shelf id="shelf_2" columnCount="7">
           {{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
@@ -98,36 +98,10 @@
               {{COPY(Server:@RecentlyAdded/size::0=|1=COPY)}}
               <items>
                 <fourByThreePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="true"
-                                onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
-                                onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}})}}')"
-                                onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect={{VAL(type::movie=Scrobble_MenuVideo|episode=Scrobble_MenuTVOnDeck)}})}}')">
-                   {{COPY(@RecentlyAdded/Server/Video)}}      
-                  {{VAR(items:NoKey:TRUE)}} 
-                  <title>{{VAL(title)}}</title>
-                  <subtitle>{{VAL(originallyAvailableAt)}}</subtitle>
-                  <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
-                  <image>{{IMAGEURL(thumb::384)}}</image>        
-                  <defaultImage>resource://{{VAL(type::movie=Poster|episode=Poster|season=Poster|album=Square|track=Square)}}.png</defaultImage>
-                </fourByThreePoster>
-              </items>
-            </shelfSection>
-          </sections>
-        </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
-        
-        <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          {{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
-          <title>{{TEXT(Recently Added Shows)}}</title>
-        </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}  
-        <shelf id="shelf_2" columnCount="7">
-          {{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
-          <sections>
-            <shelfSection>
-              {{COPY(Server:@RecentlyAdded/size::0=|1=COPY)}}
-              <items>
-                <fourByThreePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="true"
-                                onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
-                                onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect={{VAL(type::movie=Scrobble_MenuVideo|episode=Scrobble_MenuTVOnDeck)}})}}')">
-                   {{COPY(@RecentlyAdded/Server/Directory)}}      
+                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}}|season=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}})}}')"
+							onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}}|season=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}})}}')"
+                            onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
+                   {{COPY(@RecentlyAdded/Server/Video,Directory)}}      
                   {{VAR(items:NoKey:TRUE)}} 
                   <title>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(parentTitle)}}|season={{VAL(parentTitle)}}|album={{VAL(parentTitle)}})}}</title>
                   <subtitle>{{VAL(type::movie={{VAL(year)}}|episode={{VAL(title)}}|season={{VAL(title)}}|album={{VAL(title)}})}}</subtitle>
@@ -138,7 +112,7 @@
               </items>
             </shelfSection>
           </sections>
-        </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
+        </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}} 
         
       </items>
     </scroller>{{CUT(#sections::FALSE=CUT|TRUE=)}}  <!--CUT if no section added-->

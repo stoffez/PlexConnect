@@ -5,7 +5,7 @@
                 {{COPY(Video:ratingKey::=|{{VAL_QUOTED(^PlexConnectRatingKey)}}=COPY|{{VAL_QUOTED(^PlexConnectRatingKey)}} =)}}
                 
                 <mediaURL>{{VIDEOURL()}}</mediaURL>
-                <title>{{VAL(title)}}</title>
+                
                 <description>{{VAL(summary)}}</description>
                 <bookmarkTime>{{EVAL({{VAL(viewOffset:0)}} / 1000)}}</bookmarkTime>
                 <image>{{IMAGEURL(thumb::384)}}</image>
