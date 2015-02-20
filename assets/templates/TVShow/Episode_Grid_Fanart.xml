@@ -21,7 +21,7 @@
 <!--          <grid columnCount="15" id="grid_0">
              <items>-->
                <fourByThreePoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_movies::Highlighted Only=false|Show All=true)}}"
-                             onPlay="atv.loadURL('{{URL(:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')"
                                          onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_PrePlay{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
                                          onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
                  {{PAGEDCOPY(Video,4,2)}}
