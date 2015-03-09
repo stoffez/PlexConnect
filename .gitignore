@@ -1,4 +1,3 @@
-
 *.pyc
 
 /ATVSettings.cfg
@@ -14,3 +13,11 @@ PlexConnect.log
 *.pem
 
 *.der
+
+*.pyproj
+
+*.sln
+
+*.suo
+
+/assets/fanartcache/*.jpg
