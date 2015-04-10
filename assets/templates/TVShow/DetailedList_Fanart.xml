@@ -9,14 +9,9 @@
       <header>
 	    <imageHeader>
 	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=800)}}, 0" required="true">
-	      	     {{BACKGROUNDURL(::/thumbnails/plex1.jpg)}}
+	      	     {{BACKGROUNDURL(::/thumbnails/plex.jpg)}}
 	      </image>
-	    </imageHeader>{{CUT($libraryfanart::Grey=CUT|Dark=)}}
-	    <imageHeader>
-	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=800)}}, 0" required="true">
-	      	     {{BACKGROUNDURL(::/thumbnails/plex2.jpg)}}
-	      </image>
-	    </imageHeader>{{CUT($libraryfanart::Dark=CUT|Grey=)}}
+	    </imageHeader>
       </header>
       <menu>
         <sections>

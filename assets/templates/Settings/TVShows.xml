@@ -6,10 +6,10 @@
   </head>
 
   <body>
-    <listWithPreview id="SettingsPage_VideoOSD">
+    <listWithPreview id="SettingsPage_TVShows">
       <header>
         <simpleHeader>
-          <title>{{TEXT(Settings)}}</title>
+          <title>{{TEXT(TV Shows)}}</title>
         </simpleHeader>
       </header>
       <preview>
@@ -52,11 +52,7 @@
                 <label>{{TEXT(Flatten Season)}}</label>
                 <rightLabel>{{SETTING(flattenseason)}}</rightLabel>
               </oneLineMenuItem>
-              
-              <oneLineMenuItem id="ShowTitles_TVShows" onSelect="toggleSettings('ShowTitles_TVShows', 'Settings_TVShows')">
-                <label>{{TEXT(Poster Titles)}}</label>
-                <rightLabel>{{SETTING(showtitles_tvshows)}}</rightLabel>
-              </oneLineMenuItem>
+
             </items>
           </menuSection>
 

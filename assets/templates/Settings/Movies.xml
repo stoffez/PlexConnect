@@ -6,10 +6,10 @@
   </head>
 
   <body>
-    <listWithPreview id="SettingsPage_VideoOSD">
+    <listWithPreview id="SettingsPage_Movies">
       <header>
         <simpleHeader>
-          <title>{{TEXT(Settings)}}</title>
+          <title>{{TEXT(Movies)}}</title>
         </simpleHeader>
       </header>
       <preview>
@@ -42,11 +42,6 @@
               <oneLineMenuItem id="ActorView" onSelect="toggleSettings('ActorView', 'Settings_Movies')">
                 <label>{{TEXT(Actor View)}}</label>
                 <rightLabel>{{SETTING(actorview)}}</rightLabel>
-              </oneLineMenuItem>
-              
-              <oneLineMenuItem id="ShowTitles_Movies" onSelect="toggleSettings('ShowTitles_Movies', 'Settings_Movies')">
-                <label>{{TEXT(Poster Titles)}}</label>
-                <rightLabel>{{SETTING(showtitles_movies)}}</rightLabel>
               </oneLineMenuItem>
             </items>
           </menuSection>

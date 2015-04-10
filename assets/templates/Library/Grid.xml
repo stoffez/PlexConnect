@@ -16,17 +16,12 @@
       <header>
         <simpleHeader>
           <title>{{TEXT(Plex Library)}}</title>
-        </simpleHeader>{{CUT($libraryfanart::Grey=CUT|Dark=CUT|Hide=)}}
+        </simpleHeader>{{CUT($fanart::Show=CUT|Hide=)}}
         <imageHeader>
                 <image insets="{{VAL(^aTVScreenResolution:1:720=520|1080=840)}}, 0, 0, 0" required="true">
-                    {{BACKGROUNDURL(::/thumbnails/plex1.jpg)}}
+                    {{BACKGROUNDURL(::/thumbnails/plex.jpg)}}
                 </image>
-            </imageHeader>{{CUT($libraryfanart::Hide=CUT|Grey=CUT|Dark=)}}{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
-      <imageHeader>
-                <image insets="{{VAL(^aTVScreenResolution:1:720=520|1080=840)}}, 0, 0, 0" required="true">
-                    {{BACKGROUNDURL(::/thumbnails/plex2.jpg)}}
-                </image>
-            </imageHeader>{{CUT($libraryfanart::Hide=CUT|Dark=CUT|Grey=)}}{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
+            </imageHeader>{{CUT($fanart::Hide=CUT|Show=)}}{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
       </header>
       
       <items>
@@ -73,7 +68,7 @@
               <items>
                 <fourByThreePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="true"
                                 onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
-                                onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}}|episode=TVShow_PrePlay{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}})}}')"
+                                onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($fanart::Hide=|Show=_Fanart)}}|episode=TVShow_PrePlay{{VAL($fanart::Hide=|Show=_Fanart)}})}})}}')"
                                 onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect={{VAL(type::movie=Scrobble_MenuVideo|episode=Scrobble_MenuTVOnDeck)}})}}')">
                   {{COPY(@OnDeck/Server/Video)}}
                   {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
@@ -98,8 +93,8 @@
               {{COPY(Server:@RecentlyAdded/size::0=|1=COPY)}}
               <items>
                 <fourByThreePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="true"
-                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}}|season=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}})}}')"
-							onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($moviefanart::Hide=|Show=_Fanart)}}|season=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}})}}')"
+                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($fanart::Hide=|Show=_Fanart)}}|season=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($fanart::Hide=|Show=_Fanart)}})}})}}')"
+							onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_PrePlay{{VAL($fanart::Hide=|Show=_Fanart)}}|season=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($fanart::Hide=|Show=_Fanart)}})}})}}')"
                             onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=ScrobbleMenuVideo')">
                    {{COPY(@RecentlyAdded/Server/Video,Directory)}}      
                   {{VAR(items:NoKey:TRUE)}} 

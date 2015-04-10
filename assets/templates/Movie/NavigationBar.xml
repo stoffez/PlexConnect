@@ -10,12 +10,12 @@
 
       <navigationItem id="0">
      <title>{{TEXT(All Movies)}}</title>
-     <url>{{URL(key::/all:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}}{{VAL($moviefanart::Hide=|Show=_Fanart)}})}}</url>
+     <url>{{URL(key::/all:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}}{{VAL($fanart::Hide=|Show=_Fanart)}})}}</url>
 	</navigationItem>
 
 				<navigationItem id="1">
 					<title>{{TEXT(On Deck)}}</title>
-					<url>{{URL(key:::PlexConnect=Movie_OnDeck)}}</url>
+					<url>{{URL(key:::PlexConnect=Movie_OnDeck{{VAL($fanart::Hide=|Show=_Fanart)}})}}</url>
 				</navigationItem>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}
 
 				<navigationItem id="2">

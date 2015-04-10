@@ -22,15 +22,10 @@ options = { \
     'flattenseason'             :('False', 'True'), \
     'seasonview'                :('List', 'Artwork', 'Coverflow'), \
     'durationformat'            :('Hours/Minutes', 'Minutes'), \
-    'libraryfanart'             :('Hide', 'Grey', 'Dark'), \
-    'moviefanart'               :('Hide', 'Show'), \
-    'tvshowfanart'              :('Hide', 'Show'), \
+    'fanart'                    :('Hide', 'Show'), \
     'fanart_blur'               :('0', '5', '10', '15', '20'), \
+    'postertitles'              :('Highlighted Only', 'Show All'), \
     'moviepreplay_bottomshelf'  :('Related Movies', 'Extras'), \
-    'showtitles_movies'         :('Show All', 'Highlighted Only'), \
-    'showtitles_tvshows'        :('Show All', 'Highlighted Only'), \
-    'showtitles_homevideos'     :('Show All', 'Highlighted Only'), \
-    'showtitles_channels'       :('Show All', 'Highlighted Only'), \
     'movies_navbar_ondeck'      :('unchecked', 'checked'), \
     'movies_navbar_unwatched'   :('unchecked', 'checked'), \
     'movies_navbar_byfolder'    :('unchecked', 'checked'), \

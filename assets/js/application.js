@@ -416,7 +416,7 @@ atv.player.playerStateChanged = function(newState, timeIntervalSec) {
         60000
       );
     }
-      showOverlays(4);
+      showOverlays(0.5);
       statePause = 1;
   }
 

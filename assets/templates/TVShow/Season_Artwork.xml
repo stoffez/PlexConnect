@@ -15,9 +15,9 @@
       <items>
         <grid columnCount="5" id="grid_0">
           <items>
-            <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_tvshows::Highlighted Only=false|Show All=true)}}"
-							  onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
-                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($tvshowfanart::Hide=|Show=_Fanart)}})}}')"
+            <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
+							  onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($fanart::Hide=|Show=_Fanart)}})}}')"
+                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_{{EVAL('{{VAL($episodeView)}}'.replace(' ', ''))}}{{VAL($fanart::Hide=|Show=_Fanart)}})}}')"
                               onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_Menu)}}')">
               {{COPY(Directory)}}
               <title>{{VAL(title)}}</title>

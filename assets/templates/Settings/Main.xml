@@ -81,8 +81,8 @@
               </horizontalDivider>
             </header>
             <items>
-              <oneLineMenuItem id="MainNavigation" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_TopLevel)}}')">
-                <label>{{TEXT(Main Navigation)}}</label>
+              <oneLineMenuItem id="GeneralAppearance" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_TopLevel)}}')">
+                <label>{{TEXT(General Appearance)}}</label>
                 <accessories>
                   <arrow/>
                 </accessories>
@@ -123,10 +123,6 @@
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
-              <oneLineMenuItem id="DurationFormat" onSelect="toggleSettings('DurationFormat', 'Settings_Main')">
-                <label>{{TEXT(Duration Format)}}</label>
-                <rightLabel>{{SETTING(durationformat)}}</rightLabel>
-              </oneLineMenuItem>
             </items>
           </menuSection>
           
@@ -165,6 +161,10 @@
                 <label>{{TEXT(Audio Boost %)}}</label>
                 <rightLabel>{{SETTING(audioboost)}}</rightLabel>
               </oneLineMenuItem>
+              <oneLineMenuItem id="DurationFormat" onSelect="toggleSettings('DurationFormat', 'Settings_TopLevel')">
+                <label>{{TEXT(Duration Format)}}</label>
+                <rightLabel>{{SETTING(durationformat)}}</rightLabel>
+               </oneLineMenuItem>
             </items>
           </menuSection>
           
