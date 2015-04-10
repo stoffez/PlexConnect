@@ -92,44 +92,17 @@
               </horizontalDivider>
             </header>
             <items>
-            <oneLineMenuItem id="LibraryFanart" onSelect="toggleSettings('LibraryFanart', 'Settings_Sections')">
+            <oneLineMenuItem id="Fanart" onSelect="toggleSettings('Fanart', 'Settings_Sections')">
               {{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
               {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
-                <label>{{TEXT(Library Fanart)}}</label>
-                <rightLabel>{{SETTING(libraryfanart)}}</rightLabel>
+                <label>{{TEXT(Fanart)}}</label>
+                <rightLabel>{{SETTING(fanart)}}</rightLabel>
               </oneLineMenuItem>
               
-              <oneLineMenuItem id="LibraryFanart" dimmed="true">
+              <oneLineMenuItem id="Fanart" dimmed="true">
               {{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
               {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
-                <label>{{TEXT(Library Fanart)}}</label>
-                <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>
-              </oneLineMenuItem>
-            <oneLineMenuItem id="MovieFanart" onSelect="toggleSettings('MovieFanart', 'Settings_Sections')">
-              {{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
-              {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
-                <label>{{TEXT(Movie Fanart)}}</label>
-                <rightLabel>{{SETTING(moviefanart)}}</rightLabel>
-              </oneLineMenuItem>
-              
-              <oneLineMenuItem id="MovieFanart" dimmed="true">
-              {{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
-              {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
-                <label>{{TEXT(Movie Fanart)}}</label>
-                <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>
-              </oneLineMenuItem>
-              
-               <oneLineMenuItem id="TVShowFanart" onSelect="toggleSettings('TVShowFanart', 'Settings_Sections')">
-              {{CUT(NoKey:{{EVAL(['CUT',''][isPILinstalled()])}})}}
-              {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
-                <label>{{TEXT(TV Show Fanart)}}</label>
-                <rightLabel>{{SETTING(tvshowfanart)}}</rightLabel>
-              </oneLineMenuItem>
-              
-              <oneLineMenuItem id="TVShowFanart" dimmed="true">
-              {{CUT(NoKey:{{EVAL(['','CUT'][isPILinstalled()])}})}}
-              {{CUT(^aTVFirmwareVersion:CUT:=CUT|6=)}}  <!-- watch out: this will make trouble with iOS10 -->
-                <label>{{TEXT(TV Show Fanart)}}</label>
+                <label>{{TEXT(Fanart)}}</label>
                 <rightLabel>{{TEXT(PIL/Pillow not installed)}}</rightLabel>
               </oneLineMenuItem>
 							

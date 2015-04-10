@@ -17,14 +17,14 @@ options = { \
     'movieview'                 :('Artwork', 'Grid', 'List', 'Detailed List'), \
     'homevideoview'             :('List', 'Grid', 'Detailed List'), \
     'actorview'                 :('Movies', 'Portrait'), \
-    'showview'                  :('Artwork', 'List', 'Detailed List', 'Grid', 'Bookcase'), \
+    'showview'                  :('List', 'Artwork', 'Detailed List', 'Grid', 'Bookcase'), \
     'episodeview'                :('List', 'Grid'), \
     'flattenseason'             :('False', 'True'), \
-    'seasonview'                :('List', 'Artwork', 'Coverflow'), \
+    'seasonview'                :('Coverflow', 'Artwork', 'List'), \
     'durationformat'            :('Hours/Minutes', 'Minutes'), \
     'fanart'                    :('Hide', 'Show'), \
     'fanart_blur'               :('0', '5', '10', '15', '20'), \
-    'postertitles'              :('Highlighted Only', 'Show All'), \
+    'postertitles'              :('Show All', 'Highlighted Only'), \
     'moviepreplay_bottomshelf'  :('Related Movies', 'Extras'), \
     'movies_navbar_ondeck'      :('unchecked', 'checked'), \
     'movies_navbar_unwatched'   :('unchecked', 'checked'), \
