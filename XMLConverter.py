@@ -1269,7 +1269,9 @@ class CCommandCollection(CCommandHelper):
             dprint(__name__, 2, "video: ATVNative - {0}", videoATVNative)
             
             # quality limits: quality=(resolution, quality, bitrate)
-            qLookup = { '480p 2.0Mbps' :('720x480', '60', '2000'), \
+            qLookup = { '240p 400Kbps' :('426x240', '20', '400'), \
+            			'360p 750Kbps' :('640x360', '40', '750'), \
+            			'480p 2.0Mbps' :('720x480', '60', '2000'), \
                         '720p 3.0Mbps' :('1280x720', '75', '3000'), \
                         '720p 4.0Mbps' :('1280x720', '100', '4000'), \
                         '1080p 8.0Mbps' :('1920x1080', '60', '8000'), \
