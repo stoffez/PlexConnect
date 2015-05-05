@@ -55,9 +55,9 @@ options = { \
                           '720p 3.0Mbps', '720p 4.0Mbps', \
                           '1080p 8.0Mbps', '1080p 10.0Mbps', '1080p 12.0Mbps', '1080p 20.0Mbps'), \
     'transcoderaction'  :('Auto', 'DirectPlay', 'Transcode'), \
-    'remotebitrate'     :('720p 3.0Mbps', '720p 4.0Mbps', \
-                          '1080p 8.0Mbps', '1080p 10.0Mbps', '1080p 12.0Mbps', '1080p 20.0Mbps', '1080p 40.0Mbps', \
-                          '480p 2.0Mbps', '360p 750Kbps', '240p 400Kbps'), \
+    'remotebitrate'     :('240p 400Kbps', '360p 750Kbps', '480p 2.0Mbps', \
+    					  '720p 3.0Mbps', '720p 4.0Mbps', \
+                          '1080p 8.0Mbps', '1080p 10.0Mbps', '1080p 12.0Mbps', '1080p 20.0Mbps', '1080p 40.0Mbps'), \
     'phototranscoderaction'     :('Auto', 'Transcode'), \
     'subtitlerenderer'  :('Auto', 'iOS, PMS', 'PMS'), \
     'subtitlesize'      :('100', '125', '150', '50', '75'), \
