@@ -14,6 +14,22 @@ var duration, partDuration;  // milli-sec (int)
 var subtitleURL;
 var videoName;
 var videoName2;
+var videoName3;
+var videoName4;
+var videoName5;
+var videoName6;
+var videoName7;
+var videoName8;
+var videoName9;
+var videoName10;
+var videoName11;
+var videoName12;
+var videoName13;
+var videoName14;
+var videoName15;
+var videoName16;
+var videoName17;
+var videoName18;
 var poster;
 var showInfos;
 var overlaysVisible;
@@ -188,26 +204,94 @@ atv.player.willStartPlaying = function()
                   "animationDidStop": function(finished) {} };
   
   // Create clock view
-  containerView.frame = screenFrame;
-    
-    if (showInfos == "True")
-    {        
-        overlay2 = initOverlay2();
-        Views.push(overlay2);
-        overlay2.addAnimation(animation, endTimeView);
-        
-        infoView = initVideoInfoView();
-        Views.push(infoView);
-        infoView.addAnimation(animation, endTimeView);
-        
-        infoView2 = initVideoInfoView2();
-        Views.push(infoView2);
-        infoView2.addAnimation(animation, endTimeView);
-        
-        posterView = initPosterView();
-        Views.push(posterView);
-        posterView.addAnimation(animation, endTimeView);
-    }
+  containerView.frame = screenFrame; 
+  
+  if (showInfos == "True")
+  {  
+      overlay = initOverlay();
+      Views.push(overlay);
+      overlay.addAnimation(animation, overlay);
+      
+      infoView = initVideoInfoView();
+      Views.push(infoView);
+      infoView.addAnimation(animation, infoView);
+      
+      infoView2 = initVideoInfoView2();
+      Views.push(infoView2);
+      infoView2.addAnimation(animation, infoView2);
+      
+      infoView3 = initVideoInfoView3();
+      Views.push(infoView3);
+      infoView3.addAnimation(animation, infoView3);
+      
+      infoView4 = initVideoInfoView4();
+      Views.push(infoView4);
+      infoView4.addAnimation(animation, infoView4);
+      
+      infoView5 = initVideoInfoView5();
+      Views.push(infoView5);
+      infoView5.addAnimation(animation, infoView5);
+      
+      infoView6 = initVideoInfoView6();
+      Views.push(infoView6);
+      infoView6.addAnimation(animation, infoView6);
+      
+      infoView7 = initVideoInfoView7();
+      Views.push(infoView7);
+      infoView7.addAnimation(animation, infoView7);
+      
+      infoView8 = initVideoInfoView8();
+      Views.push(infoView8);
+      infoView8.addAnimation(animation, infoView8);
+      
+      infoView9 = initVideoInfoView9();
+      Views.push(infoView9);
+      infoView9.addAnimation(animation, infoView9);
+      
+      infoView10 = initVideoInfoView10();
+      Views.push(infoView10);
+      infoView10.addAnimation(animation, infoView10);
+      
+      infoView11 = initVideoInfoView11();
+      Views.push(infoView11);
+      infoView11.addAnimation(animation, infoView11);
+      
+      infoView12 = initVideoInfoView12();
+      Views.push(infoView12);
+      infoView12.addAnimation(animation, infoView12);
+      
+      infoView13 = initVideoInfoView13();
+      Views.push(infoView13);
+      infoView13.addAnimation(animation, infoView13);
+      
+      infoView14 = initVideoInfoView14();
+      Views.push(infoView14);
+      infoView14.addAnimation(animation, infoView14);
+      
+      infoView15 = initVideoInfoView15();
+      Views.push(infoView15);
+      infoView15.addAnimation(animation, infoView15);
+      
+      infoView16 = initVideoInfoView16();
+      Views.push(infoView16);
+      infoView16.addAnimation(animation, infoView16);
+      
+      infoView17 = initVideoInfoView17();
+      Views.push(infoView17);
+      infoView17.addAnimation(animation, infoView17);
+      
+      infoView18 = initVideoInfoView18();
+      Views.push(infoView18);
+      infoView18.addAnimation(animation, infoView18);
+      
+      posterView = initPosterView();
+      Views.push(posterView);
+      posterView.addAnimation(animation, posterView);
+      
+      posterView2 = initPosterView2();
+      Views.push(posterView2);
+      posterView2.addAnimation(animation, posterView2);
+  }
     
   if (showClock == "True")
   {
@@ -308,10 +392,26 @@ function getMetadata()
         // todo: subtitle handling with playlists/stacked media
         subtitleURL = metadata.getTextContent('subtitleURL');
         
-        videoName = metadata.getTextContent('videoTitle');
-        videoName2 = metadata.getTextContent('videoSubtitle');
+        videoName = metadata.getTextContent('summary');
+        videoName2 = metadata.getTextContent('show');
+        videoName3 = metadata.getTextContent('show2');
+        videoName4 = metadata.getTextContent('show3');
+        videoName5 = metadata.getTextContent('show4');
+        videoName6 = metadata.getTextContent('show5');
+        videoName7 = metadata.getTextContent('show6');
+        videoName8 = metadata.getTextContent('show7');
+        videoName9 = metadata.getTextContent('show8');
+        videoName10 = metadata.getTextContent('show9');
+        videoName11 = metadata.getTextContent('show10');
+        videoName12 = metadata.getTextContent('show11');
+        videoName13 = metadata.getTextContent('show12');
+        videoName14 = metadata.getTextContent('show13');
+        videoName15 = metadata.getTextContent('show14');
+        videoName16 = metadata.getTextContent('show15');
+        videoName17 = metadata.getTextContent('show16');
+        videoName18 = metadata.getTextContent('show17');
         poster = metadata.getTextContent('poster');
-        
+        thumb = metadata.getTextContent('epsThumb');
         log('updateMetadata/getMetadata done');
     }
     log('updateMetadata done');
@@ -372,10 +472,27 @@ showOverlays = function(animationDuration)
     if (showClock == "True") clockView.addAnimation(animation, clockView);
     if (showEndtime == "True") endTimeView.addAnimation(animation, endTimeView);
     if (showInfos == "True") {
-        overlay2.addAnimation(animation, overlay2);
+        overlay.addAnimation(animation, overlay);
         infoView.addAnimation(animation, infoView);
         infoView2.addAnimation(animation, infoView2);
+        infoView3.addAnimation(animation, infoView3);
+        infoView4.addAnimation(animation, infoView4);
+        infoView5.addAnimation(animation, infoView5);
+        infoView6.addAnimation(animation, infoView6);
+        infoView7.addAnimation(animation, infoView7);
+        infoView8.addAnimation(animation, infoView8);
+        infoView9.addAnimation(animation, infoView9);
+        infoView10.addAnimation(animation, infoView10);
+        infoView11.addAnimation(animation, infoView11);
+        infoView12.addAnimation(animation, infoView12);
+        infoView13.addAnimation(animation, infoView13);
+        infoView14.addAnimation(animation, infoView14);
+        infoView15.addAnimation(animation, infoView15);
+        infoView16.addAnimation(animation, infoView16);
+        infoView17.addAnimation(animation, infoView17);
+        infoView18.addAnimation(animation, infoView18);
         posterView.addAnimation(animation, posterView);
+        posterView2.addAnimation(animation, posterView2);
     }
 };
 
@@ -388,10 +505,27 @@ hideOverlays = function(animationDuration)
     if (showClock == "True") clockView.addAnimation(animation, clockView);
     if (showEndtime == "True") endTimeView.addAnimation(animation, endTimeView);
     if (showInfos == "True") {
-        overlay2.addAnimation(animation, overlay2);
+        overlay.addAnimation(animation, overlay);
         infoView.addAnimation(animation, infoView);
         infoView2.addAnimation(animation, infoView2);
+        infoView3.addAnimation(animation, infoView3);
+        infoView4.addAnimation(animation, infoView4);
+        infoView5.addAnimation(animation, infoView5);
+        infoView6.addAnimation(animation, infoView6);
+        infoView7.addAnimation(animation, infoView7);
+        infoView8.addAnimation(animation, infoView8);
+        infoView9.addAnimation(animation, infoView9);
+        infoView10.addAnimation(animation, infoView10);
+        infoView11.addAnimation(animation, infoView11);
+        infoView12.addAnimation(animation, infoView12);
+        infoView13.addAnimation(animation, infoView13);
+        infoView14.addAnimation(animation, infoView14);
+        infoView15.addAnimation(animation, infoView15);
+        infoView16.addAnimation(animation, infoView16);
+        infoView17.addAnimation(animation, infoView17);
+        infoView18.addAnimation(animation, infoView18);
         posterView.addAnimation(animation, posterView);
+        posterView2.addAnimation(animation, posterView2);
     }
 };
 
@@ -416,7 +550,7 @@ atv.player.playerStateChanged = function(newState, timeIntervalSec) {
         60000
       );
     }
-      showOverlays(0.5);
+      showOverlays(0.1);
       statePause = 1;
   }
 
@@ -469,102 +603,327 @@ var clockView;
 var clockTimer;
 var endTimeView;
 var endTimer;
-
-var overlay2;
+var overlay;
 var posterView;
+var posterView2;
 var infoView;
+var infoView3;
+var infoView4;
+var infoView5;
+var infoView6;
+var infoView7;
+var infoView8;
+var infoView9;
+var infoView10;
+var infoView11;
+var infoView12;
+var infoView13;
+var infoView14;
+var infoView15;
+var infoView16;
+var infoView17;
+var infoView18;
 
 
 function pad(num, len) {return (Array(len).join("0") + num).slice(-len);};
-
+//Poster Overlay
 function initPosterView()
 {
     var posterView = new atv.ImageView();
     
-    var width = screenFrame.width * 0.1;
-    var height = screenFrame.height * 0.2;
-    var overscanadjust = 0.006 * (parseInt(overscanAdjust));
-    
-    posterView.frame = {
-    x: screenFrame.x + 40,
-    y: screenFrame.y + (screenFrame.height * (0.36 + overscanadjust) - height),
-    width: width,
-    height: height
-    };
-    
+    var x = (screenFrame.width / 100.0) * 10.0; // X pos 10% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 49.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 40.0;// Height is 40% of screen height
+    var width = height * 0.69;// Calculate width from height times poster aspect ratio
+    posterView.frame = {x: x, y: y, width: width, height: height};
     posterView.loadImageAtURL(poster);
     return posterView;
 }
-
-function initOverlay2()
+//Fanart Overlay
+function initPosterView2()
 {
-    var overlayHeight = screenFrame.height * 0.28;
-    var overscanadjust = 0.006 * (parseInt(overscanAdjust));
+    var posterView2 = new atv.ImageView();
     
-    overlay2 = new atv.View();
-    overlay2.frame = {x: screenFrame.x,
-    y: screenFrame.y + (screenFrame.height * (0.28 - overscanadjust)) - overlayHeight,
-        width: screenFrame.width, height: overlayHeight };
-    overlay2.backgroundColor = { red: 0, green: 0, blue: 0, alpha: 0.65 };
-    
-    return overlay2;
+    var x = (screenFrame.width / 100.0) * 10.0; // X pos 10% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 18.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 40.0;// Height is 40% of screen height
+    var width = height * 0.69;// Calculate width from height times poster aspect ratio
+    posterView2.frame = {x: x, y: y, width: width, height: height};
+    posterView2.loadImageAtURL(thumb);
+    return posterView2;
+}
+//Tint Overlay
+function initOverlay()
+{
+    overlay = new atv.View();
+    overlay.frame = {x: screenFrame.x, y: screenFrame.y, width: screenFrame.width, height: screenFrame.height};
+    overlay.backgroundColor = { red: 0, green: 0, blue: 0, alpha: 0.7 };
+    return overlay;
 }
 
+//Title Show
 function initVideoInfoView()
 {
     infoView = new atv.TextView();
-    var width = screenFrame.width;
-    var height = screenFrame.height * 0.2;
-    var overscanadjust = 0.4 * (parseInt(overscanAdjust));
-    var offsetx = screenFrame.width * 0.125;
-    if (clockPosition == 'Left') offsetx = -50;
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 83.0; // Y pos 70% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 7.0;// Height is 5% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
     
-    infoView.frame = { "x": screenFrame.x + (screenFrame.width * overscanadjust) + offsetx,
-        "y": screenFrame.y + (screenFrame.height * (0.27 + overscanadjust)) - height,
-        "width": width, "height": height };
-    
-    if (clockPosition == 'Left') {
-        infoView.attributedString = {string: " " + videoName2, attributes: {pointSize: 36.0, color: {red: 1, blue: 1, green: 1}, alignment: "right", weight: "light"}};
-    } else {
-        infoView.attributedString = {string: " " + videoName2, attributes: {pointSize: 36.0, color: {red: 1, blue: 1, green: 1}, alignment: "left", weight: "light"}};
-    }
-    
+    infoView.frame = {x: x, y: y, width: width, height: height};
+    //infoView.backgroundColor = { red: 0, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView.attributedString = {string: " " + videoName2, attributes: {pointSize: 36.0, color: {red: 1, blue: 1, green: 1}, alignment: "left", weight: "light"}};
     return infoView;
 }
-
+// Show 2
+function initVideoInfoView3()
+{
+    infoView3 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 42.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 25.0;// Width is 60% of screen width
+    
+    infoView3.frame = {x: x, y: y, width: width, height: height};
+    //infoView2.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView3.attributedString = {string: " " + videoName3, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, alignment: "left", weight: "light"}};
+    return infoView3;
+}
+// Show 3
+function initVideoInfoView4()
+{
+    infoView4 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 47.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 25.0;// Width is 60% of screen width
+    
+    infoView4.frame = {x: x, y: y, width: width, height: height};
+    //infoView4.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView4.attributedString = {string: " " + videoName4, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, alignment: "left", weight: "light"}};
+    return infoView4;
+}
+// Show 4
+function initVideoInfoView5()
+{
+    infoView5 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 60.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 37.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView5.frame = {x: x, y: y, width: width, height: height};
+    //infoView2.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView5.attributedString = {string: " " + videoName5, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView5;
+}
+// Show 5
+function initVideoInfoView6()
+{
+    infoView6 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 60.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 47.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView6.frame = {x: x, y: y, width: width, height: height};
+    //infoView2.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView6.attributedString = {string: " " + videoName6, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView6;
+}
+// Show 6
+function initVideoInfoView7()
+{
+    infoView7 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 37.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView7.frame = {x: x, y: y, width: width, height: height};
+    //infoView7.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView7.attributedString = {string: " " + videoName7, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView7;
+}
+// Show 7
+function initVideoInfoView8()
+{
+    infoView8 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 60.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 42.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView8.frame = {x: x, y: y, width: width, height: height};
+    //infoView8.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView8.attributedString = {string: " " + videoName8, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView8;
+}
+// Show 8
+function initVideoInfoView9()
+{
+    infoView9 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 70.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 42.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView9.frame = {x: x, y: y, width: width, height: height};
+    //infoView9.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView9.attributedString = {string: " " + videoName9, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView9;
+}
+// Show 9
+function initVideoInfoView10()
+{
+    infoView10 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 70.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 37.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView10.frame = {x: x, y: y, width: width, height: height};
+    //infoView10.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView10.attributedString = {string: " " + videoName10, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView10;
+}
+// Show 10
+function initVideoInfoView11()
+{
+    infoView11 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 60.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 32.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView11.frame = {x: x, y: y, width: width, height: height};
+    //infoView11.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView11.attributedString = {string: " " + videoName11, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView11;
+}
+// Show 11
+function initVideoInfoView12()
+{
+    infoView12 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 70.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 47.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView12.frame = {x: x, y: y, width: width, height: height};
+    //infoView12.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView12.attributedString = {string: " " + videoName12, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView12;
+}
+// Show 12
+function initVideoInfoView13()
+{
+    infoView13 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 70.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 32.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView13.frame = {x: x, y: y, width: width, height: height};
+    //infoView13.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView13.attributedString = {string: " " + videoName13, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView13;
+}
+// Show 13
+function initVideoInfoView14()
+{
+    infoView14 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 70.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 27.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView14.frame = {x: x, y: y, width: width, height: height};
+    //infoView14.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView14.attributedString = {string: " " + videoName14, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView14;
+}
+// Show 14
+function initVideoInfoView15()
+{
+    infoView15 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 70.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 22.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView15.frame = {x: x, y: y, width: width, height: height};
+    //infoView15.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView15.attributedString = {string: " " + videoName15, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView15;
+}
+// Show 15
+function initVideoInfoView16()
+{
+    infoView16 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 22.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView16.frame = {x: x, y: y, width: width, height: height};
+    //infoView16.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView16.attributedString = {string: " " + videoName16, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView16;
+}
+// Show 16
+function initVideoInfoView17()
+{
+    infoView17 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 32.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView17.frame = {x: x, y: y, width: width, height: height};
+    //infoView17.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView17.attributedString = {string: " " + videoName17, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView17;
+}
+// Show 17
+function initVideoInfoView18()
+{
+    infoView18 = new atv.TextView();
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 27.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 35.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
+    
+    infoView18.frame = {x: x, y: y, width: width, height: height};
+    //infoView14.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView18.attributedString = {string: " " + videoName18, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
+    return infoView18;
+}
+// Summary Info
 function initVideoInfoView2()
 {
     infoView2 = new atv.TextView();
-    var width = screenFrame.width;
-    var height = screenFrame.height * 0.2;
-    var overscanadjust = 0.4 * (parseInt(overscanAdjust));
-    var offsetx = screenFrame.width * 0.13;
-    if (clockPosition == 'Left') offsetx = -50;
+    var x = (screenFrame.width / 100.0) * 30.0; // X pos 30% of screen width from left edge
+    var y = (screenFrame.height / 100.0) * 14.0; // Y pos 35% of screen height from bottom edge
+    var height = (screenFrame.height / 100.0) * 32.0;// Height is 35% of screen height
+    var width = (screenFrame.width / 100.0) * 60.0;// Width is 60% of screen width
     
-    infoView2.frame = { "x": screenFrame.x + (screenFrame.width * overscanadjust) + offsetx - 2,
-        "y": screenFrame.y + (screenFrame.height * (0.21 + overscanadjust)) - height,
-        "width": width, "height": height };
-    
-    if (clockPosition == 'Left') {
-        infoView2.attributedString = {string: " " + videoName, attributes: {pointSize: 20.0, color: {red: 1, blue: 1, green: 1}, alignment: "right", weight: "light"}};
-    } else {
-        infoView2.attributedString = {string: " " + videoName, attributes: {pointSize: 20.0, color: {red: 1, blue: 1, green: 1}, alignment: "left", weight: "light"}};
-    }
-    
+    infoView2.frame = {x: x, y: y, width: width, height: height};
+    //infoView2.backgroundColor = { red: 1, green: 0, blue: 1, alpha: 0.7 };// Uncomment to show debug color
+    infoView2.attributedString = {string: " " + videoName, attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, breakMode: "word-wrap", alignment: "left", weight: "light"}};
     return infoView2;
 }
-
 function initClockView()
 {
     clockView = new atv.TextView();
-    var width = screenFrame.width * 0.15;
+    var width = screenFrame.width * 0.20;
     if (timeFormat == '24 Hour')
     {
-        width = screenFrame.width * 0.10;
+        width = screenFrame.width * 0.25;
     }
     var height = screenFrame.height * 0.08;
     var overscanadjust = 0.008 * (parseInt(overscanAdjust));
-    var xmul = 0.1; //Default for Left Position
+    var xmul = 0.17; //Default for Left Position
     if (clockPosition == 'Center') var xmul = 0.5;
     else if (clockPosition == 'Right') var xmul = 0.9;
     
@@ -592,7 +951,7 @@ function initEndTimeView()
     }
     var height = screenFrame.height * 0.3;
     var overscanadjust = 0.008 * (parseInt(overscanAdjust));
-    var xmul = 0.5; // Default for Left Position
+    var xmul = 0.17; // Default for Left Position
     if (clockPosition == 'Center') var xmul = 0.5;
     else if (clockPosition == 'Right') var xmul = 0.88;
     
@@ -623,15 +982,16 @@ function updateClock()
     var secs = pad(time.getSeconds(), 2);
     var timestr24 = hours24 + ":" + mins;
     var timestr12 = hours12 + ":" + mins + " " + tail;
+    var TimeStrC = "Time:  "
     if (timeFormat == '24 Hour')
     {
-        clockView.attributedString = {string: "" + timestr24,
-            attributes: {pointSize: 36.0, color: {red: 1, blue: 1, green: 1}, alignment: "center", weight: "light"}};
+        clockView.attributedString = {string: "" + TimeStrC + timestr24,
+            attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, alignment: "center", weight: "light"}};
     }
     else
     {
-        clockView.attributedString = {string: "" + timestr12,
-            attributes: {pointSize: 36.0, color: {red: 1, blue: 1, green: 1}, alignment: "center", weight: "light"}};
+        clockView.attributedString = {string: "" + TimeStrC + timestr12,
+            attributes: {pointSize: 24.0, color: {red: 1, blue: 1, green: 1}, alignment: "center", weight: "light"}};
     }
 };
 

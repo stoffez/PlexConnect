@@ -6,9 +6,9 @@
                 
                 <mediaURL>{{VIDEOURL()}}</mediaURL>
                 
-                <description>{{VAL(summary)}}</description>
+               <!-- <description>{{VAL(summary)}}</description>-->
                 <bookmarkTime>{{EVAL({{VAL(viewOffset:0)}} / 1000)}}</bookmarkTime>
-                <image>{{IMAGEURL(thumb::384)}}</image>
+               <!-- <image>{{IMAGEURL(thumb::384)}}</image>-->
                 
                 <videoPlayerSettings>
                     <!-- PMS, OSD settings, ... -->
@@ -29,9 +29,27 @@
                     <key>{{VAL(key)}}</key>
                     <ratingKey>{{VAL(ratingKey)}}</ratingKey>
                     <duration>{{VAL(duration)}}</duration>
-                    <videoSubtitle>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(title)}})}}</videoSubtitle>
-                    <videoTitle>{{VAL(type::movie={{VAL(year)}}|episode={{TEXT(Season)}} {{VAL(parentIndex)}} {{TEXT(Episode)}} {{VAL(index)}} )}} </videoTitle>
+                    <show>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(grandparentTitle)}} )}}</show>
+                    <show2>{{VAL(type::movie={{VAL(studio)}}|episode={{VAL(title)}} )}}</show2>
+                    <show3>{{VAL(type::movie={{VAL(tagline)}}|episode={{TEXT(Season)}} {{VAL(parentIndex)}} {{TEXT(Episode)}} {{VAL(index)}} )}}</show3>
+                    <show4>{{TEXT(Director)}}</show4>
+                    <show5>{{TEXT({{VAL(type::movie=Released|episode=Aired)}} )}}</show5>
+                    <show6>{{durationToString(NoKey:Video:duration)}}</show6>
+                    <show7>{{TEXT({{VAL(type::movie=Producer|episode=Writer)}})}}</show7>
+                    <show8>{{VAL(type::movie={{VAL(Producer/tag)}}|episode={{VAL(Writer/tag)}} )}}</show8>
+                    <show9>{{VAL(Director/tag)}} </show9>
+                    <show10>{{TEXT({{VAL(type::movie=Cast|episode=)}} )}}</show10>
+                    <show11>{{VAL(type::movie={{VAL(year)}}|episode={{VAL(originallyAvailableAt)}} )}}</show11>
+                    <show12>{{VAL(type::movie={{VAL(Role/tag)}}|episode=)}}</show12>
+                    <show13>{{VAL(type::movie={{VAL(Role[2]/tag)}}|episode=)}}</show13>
+                    <show14>{{VAL(type::movie={{VAL(Role[3]/tag)}}|episode=)}}</show14>
+                    <show15>{{VAL(type::movie={{VAL(Genre/tag)}}{{VAL(Genre[2]/tag::=, )}}{{VAL(Genre[2]/tag)}}|episode=)}}</show15>
+                    <show16>{{VAL(Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}} {{VAL(Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}} {{VAL(Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}}</show16>
+                    <show17>{{TEXT(Rating)}} {{VAL(contentRating)}}</show17>
+                    <summary>{{VAL(summary)}}</summary>
+                    <epsThumb>{{IMAGEURL({{VAL(type::movie=art|episode=thumb)}}::384)}}</epsThumb>
                     <poster>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</poster>
+
                     <!-- subtitle -->
                     <__COPY__><!--needed as {{COPY}} doesn't work completely clean. Todo: ExpandTree needs to "finish" current element...-->
                                {{COPY(Media/Part/Stream:streamType::=|3=COPY|3 =)}}
