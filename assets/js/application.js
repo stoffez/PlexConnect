@@ -924,8 +924,6 @@ function initClockView()
     var height = screenFrame.height * 0.08;
     var overscanadjust = 0.008 * (parseInt(overscanAdjust));
     var xmul = 0.17; //Default for Left Position
-    if (clockPosition == 'Center') var xmul = 0.5;
-    else if (clockPosition == 'Right') var xmul = 0.9;
     
     
     // Setup the clock frame
@@ -952,8 +950,6 @@ function initEndTimeView()
     var height = screenFrame.height * 0.3;
     var overscanadjust = 0.008 * (parseInt(overscanAdjust));
     var xmul = 0.17; // Default for Left Position
-    if (clockPosition == 'Center') var xmul = 0.5;
-    else if (clockPosition == 'Right') var xmul = 0.88;
     
     // Setup the end time frame
     if (showInfos == "False") endTimeView.backgroundColor = { red: 0, blue: 0, green: 0, alpha: 0.7};
